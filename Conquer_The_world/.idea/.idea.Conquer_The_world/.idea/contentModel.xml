@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="GameStrings" t="Include">
+            <e p="SceneNames.cs" t="Include" />
+            <e p="Tags.cs" t="Include" />
+          </e>
+          <e p="Init.cs" t="Include" />
+          <e p="Interfaces" t="Include">
+            <e p="ITroop.cs" t="Include" />
+          </e>
+          <e p="PlayerData.cs" t="Include" />
+          <e p="SavedValues" t="Include">
+            <e p="SavedValues.cs" t="Include" />
+          </e>
+          <e p="SceneLoader.cs" t="Include" />
+          <e p="Troop.cs" t="Include" />
+          <e p="UnitSelectionManager.cs" t="Include" />
+          <e p="Weapon.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Conquer_The_world.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Conquer_The_world.154055349.00" t="ExcludeRecursive" />
+  </component>
+</project>
