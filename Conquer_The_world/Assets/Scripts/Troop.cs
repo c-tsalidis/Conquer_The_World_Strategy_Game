@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Troop : MonoBehaviour, ITroop {
-
+    private NavMeshAgent _pathFinder;
     public enum TroopType {
         Swordsman,
         Archer
@@ -35,6 +37,10 @@ public class Troop : MonoBehaviour, ITroop {
         _speed = 2.0f;
         _range = 2;
         isControlled = false;
+    }
+
+    private void Start() {
+        _pathFinder = GetComponent<NavMeshAgent>();
     }
 
     private void Update() {
@@ -70,7 +76,9 @@ public class Troop : MonoBehaviour, ITroop {
         }
         */
         Debug.Log(gameObject.name + " moving to " + moveTo);
-        transform.position = moveTo;
+        // _pathFinder.Warp(moveTo);
+        _pathFinder.SetDestination(moveTo);
+        // transform.position = moveTo;
     }
 
     public void Attack() {

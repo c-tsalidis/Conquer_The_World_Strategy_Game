@@ -24,7 +24,7 @@ public class UnitSelectionManager : MonoBehaviour {
                     var t = objectHit.GetComponent<Troop>();
                     t.isSelected = true;
                 }
-                else if (objectHit.CompareTag(Init.tags.Map)) {
+                else if (objectHit.CompareTag(Init.tags.Ground)) {
                     // get the point where the ray hits the ground plane
                     Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
                     if (groundPlane.Raycast(ray, out float rayDistance)) {

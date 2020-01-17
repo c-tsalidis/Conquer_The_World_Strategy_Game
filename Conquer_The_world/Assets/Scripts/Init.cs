@@ -49,7 +49,10 @@ public class Init : MonoBehaviour {
     public void LoadBattle() {
         // load the city prefab
         GameObject map = Instantiate(Resources.Load("Prefabs/Map")) as GameObject;
-        if (map != null) map.tag = tags.Map;
+        if (map != null) {
+            var t = map.transform.Find("Ground_Plane");
+            if(t != null) t.tag = tags.Ground;
+        }
         // create the troops
         CreateTroops();
     }
@@ -58,7 +61,7 @@ public class Init : MonoBehaviour {
         // if player doesn't have any troops, give him 5 of each troop type: 5 swordsmen and 5 archers
         if (playerData.troops.Count <= 0) {
             for (int i = 0; i < 10; i++) {
-                var troop = Instantiate(Resources.Load("Prefabs/Troop"), transform.position + Vector3.right * (i + 1), Quaternion.identity) as GameObject;
+                var troop = Instantiate(Resources.Load("Prefabs/Troop"), transform.position + Vector3.right * (i + 1) + Vector3.up, Quaternion.identity) as GameObject;
                 if (troop != null) {
                     Troop t = troop.GetComponent<Troop>();
                     if (i < 5) t.troopType = Troop.TroopType.Swordsman;

@@ -3,6 +3,7 @@ namespace GameStrings {
         public string Enemy { get; } = "Enemy";
         public string PlayerTroop { get; } = "PlayerTroop";
         public string Map { get; } = "Map";
+        public string Ground { get; } = "Ground";
 
         public Tags() { }
     }
