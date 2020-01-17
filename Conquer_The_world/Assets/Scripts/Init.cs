@@ -1,6 +1,7 @@
 using System;
 using GameStrings;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Init : MonoBehaviour {
     // instance of the Init
@@ -19,6 +20,9 @@ public class Init : MonoBehaviour {
 
     // main camera
     public static Camera MainCamera;
+    
+    // materials
+    [SerializeField] private Material [] troopMaterials;
 
     private void Awake() {
         // Create Init if it doesn't exist --> singleton
@@ -67,13 +71,15 @@ public class Init : MonoBehaviour {
         // if player doesn't have any troops, give him 5 of each troop type: 5 swordsmen and 5 archers
         if (PlayerData.troops.Count <= 0) {
             for (int i = 0; i < 10; i++) {
-                var troop = Instantiate(Resources.Load("Prefabs/Troop"), transform.position + Vector3.right * (i + 1) + Vector3.up, Quaternion.identity) as GameObject;
+                // var troop = Instantiate(Resources.Load("Prefabs/Troop"), transform.position + Vector3.right * (i + 1) + Vector3.up, Quaternion.identity) as GameObject;
+                var troop = Instantiate(Resources.Load("Prefabs/Troop"), new Vector3(Random.Range(-40, 40), 0, Random.Range(-40, 40)), Quaternion.identity) as GameObject;
                 if (troop != null) {
                     Troop t = troop.GetComponent<Troop>();
                     if (i < 5) t.troopType = Troop.TroopType.Swordsman;
                     else t.troopType = Troop.TroopType.Archer;
                     t.tag = Tags.PlayerTroop;
                     t.PopulateInstance(1);
+                    t.transform.Find("Body_Visuals").GetComponent<Renderer>().material = troopMaterials[0]; // player troop material
                     PlayerData.troops.Add(troop);
                 }
                 else Debug.Log("Troop prefab is null");
@@ -82,12 +88,14 @@ public class Init : MonoBehaviour {
         
         // create the enemies
         for (int i = 0; i < 10; i++) {
-            var troop = Instantiate(Resources.Load("Prefabs/Troop"), transform.position + (Vector3.left* 10) + Vector3.right * (i + 1) + Vector3.up, Quaternion.identity) as GameObject;
+            // var troop = Instantiate(Resources.Load("Prefabs/Troop"), transform.position + (Vector3.left* 10) + Vector3.right * (i + 1) + Vector3.up, Quaternion.identity) as GameObject;
+            var troop = Instantiate(Resources.Load("Prefabs/Troop"), new Vector3(Random.Range(-40, 40), 0, Random.Range(-40, 40)), Quaternion.identity) as GameObject;
             if (troop != null) {
                 Troop t = troop.GetComponent<Troop>();
                 if (i < 5) t.troopType = Troop.TroopType.Swordsman;
                 else t.troopType = Troop.TroopType.Archer;
                 t.PopulateInstance(1);
+                t.transform.Find("Body_Visuals").GetComponent<Renderer>().material = troopMaterials[1]; // enemy material
                 t.tag = Tags.Enemy;
             }
             else Debug.Log("Troop prefab is null");
