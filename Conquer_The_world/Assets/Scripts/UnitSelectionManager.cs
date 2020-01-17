@@ -19,12 +19,12 @@ public class UnitSelectionManager : MonoBehaviour {
             if (Physics.Raycast(ray, out hit)) {
                 Transform objectHit = hit.transform;
                 // moveTo = ray.direction;
-                if (objectHit.CompareTag(Init.tags.PlayerTroop)) {
+                if (objectHit.CompareTag(Init.Tags.PlayerTroop)) {
                     Debug.Log("Selected " + objectHit.transform.name);
                     var t = objectHit.GetComponent<Troop>();
                     t.isSelected = true;
                 }
-                else if (objectHit.CompareTag(Init.tags.Ground)) {
+                else if (objectHit.CompareTag(Init.Tags.Ground)) {
                     // get the point where the ray hits the ground plane
                     Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
                     if (groundPlane.Raycast(ray, out float rayDistance)) {
@@ -33,7 +33,7 @@ public class UnitSelectionManager : MonoBehaviour {
                     }
                     Debug.Log("Map hit - Set pos to " + moveTo);
                     // go through all the selected units and move them
-                    foreach (var troop in Init.playerData.troops) {
+                    foreach (var troop in Init.PlayerData.troops) {
                         Troop t = troop.GetComponent<Troop>();
                         if (t.isSelected) {
                             t.moveTo = moveTo;
@@ -44,7 +44,7 @@ public class UnitSelectionManager : MonoBehaviour {
         }
         // if the players wants to deselect troops, they will press the key "q" from the keyboard
         if (Input.GetKeyDown("q")) {
-            foreach (var troop in Init.playerData.troops) {
+            foreach (var troop in Init.PlayerData.troops) {
                 Troop t = troop.GetComponent<Troop>();
                 if (t != null) {
                     if(t.isSelected) t.isSelected = false;

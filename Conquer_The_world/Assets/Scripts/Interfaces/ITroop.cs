@@ -1,12 +1,12 @@
+using System.Collections;
+
 namespace Interfaces {
     public interface ITroop {
         void PopulateInstance(int level);
-        int Damage { get; }
         void Move();
-        void Attack();
-        void Die();
-        void Check();
+        IEnumerator Attack();
+        IEnumerator Die();
+        IEnumerator Check();
         void TakeDamage(int damage);
-        
     }
 }

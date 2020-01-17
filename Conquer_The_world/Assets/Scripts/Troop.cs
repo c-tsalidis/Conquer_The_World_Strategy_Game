@@ -8,13 +8,9 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Troop : MonoBehaviour, ITroop {
     private NavMeshAgent _pathFinder;
-    public enum TroopType {
-        Swordsman,
-        Archer
-    };
 
+    public enum TroopType { Swordsman, Archer };
     public TroopType troopType;
-    // [SerializeField] private Camera mainCamera;
 
     public bool IsAlive { get; set; }
     private int _damage;
@@ -23,11 +19,21 @@ public class Troop : MonoBehaviour, ITroop {
     private float _range;
     public bool isSelected;
     public bool isControlled;
+    public string targetTag;
 
     // position to go to
     public Vector3 moveTo;
-    private Vector3 previousPos;
+    private Vector3 _previousPos;
 
+    private bool _reachedDestination;
+    
+    private bool _targetIsSet;
+    private Transform _target;
+    private bool _canAttack; // has the time interval between attacks finished??
+    
+    [SerializeField] private float minDistance = 2.0f;
+    [SerializeField] private WaitForSeconds _waitForSeconds;
+    private LayerMask _targetMask;
 
     public Troop() {
         troopType = TroopType.Swordsman;
@@ -37,6 +43,8 @@ public class Troop : MonoBehaviour, ITroop {
         _speed = 2.0f;
         _range = 2;
         isControlled = false;
+        _waitForSeconds = new WaitForSeconds(1.0f);
+        _canAttack = true;
     }
 
     private void Start() {
@@ -44,66 +52,128 @@ public class Troop : MonoBehaviour, ITroop {
     }
 
     private void Update() {
-        Check();
+        if (_health <= 0) {
+            IsAlive = false;
+            StartCoroutine(Die());
+        }
+        StartCoroutine(Check());
     }
 
     public void PopulateInstance(int level) {
+        // set the gameobject's name to the troop type
         gameObject.name = troopType.ToString();
+        // set the target tag
+        if (gameObject.CompareTag(Init.Tags.PlayerTroop)) {
+            // set this gameobject's layer
+            gameObject.layer = LayerMask.NameToLayer(Init.Tags.PlayerTroop);
+            // set the target
+            targetTag = Init.Tags.Enemy;
+            _targetMask = LayerMask.GetMask(Init.Tags.Enemy);
+        }
+        else {
+            // set this gameobject's layer
+            gameObject.layer = LayerMask.NameToLayer(Init.Tags.Enemy);
+            // set the target
+            targetTag = Init.Tags.PlayerTroop;
+            _targetMask = LayerMask.GetMask(Init.Tags.PlayerTroop);
+        }
+        // populate if either swordsman or archer
         switch (troopType) {
             case TroopType.Swordsman: {
-                GameObject swordsManWeapons = Instantiate(Resources.Load("Prefabs/SwordsManWeapons"), transform) as GameObject;
-                if (swordsManWeapons != null) {swordsManWeapons.transform.SetParent(gameObject.transform);}
+                GameObject swordsManWeapons =
+                    Instantiate(Resources.Load("Prefabs/SwordsManWeapons"), transform) as GameObject;
+                if (swordsManWeapons != null) {
+                    swordsManWeapons.transform.SetParent(gameObject.transform);
+                }
                 break;
             }
             case TroopType.Archer: {
-                GameObject archerWeapons = Instantiate(Resources.Load("Prefabs/ArcherWeapons"), transform) as GameObject;
+                GameObject archerWeapons =
+                    Instantiate(Resources.Load("Prefabs/ArcherWeapons"), transform) as GameObject;
                 if (archerWeapons != null) archerWeapons.transform.SetParent(gameObject.transform);
                 break;
             }
         }
     }
-
-    public int Damage { get; }
     public void Move() {
-        /*
-        if (isControlled) {
-            float horizontal = Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * speed;
-            float vertical = Input.GetAxisRaw("Vertical") * Time.fixedDeltaTime * speed;
-            Vector3 moveInput = new Vector3(horizontal, 0, vertical);
-            gameObject.transform.Translate(moveInput);
-            // mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, transform.position.y, mainCamera.transform.position.z);
-            mainCamera.transform.position = mainCamera.transform.position + Vector3.up * cameraOffset;
-        }
-        */
-        Debug.Log(gameObject.name + " moving to " + moveTo);
-        // _pathFinder.Warp(moveTo);
         _pathFinder.SetDestination(moveTo);
-        // transform.position = moveTo;
     }
 
-    public void Attack() {
-        throw new NotImplementedException();
+    public IEnumerator Attack() {
+        // the wait for seconds should be higher than the attack animation --> like around twice or so
+        Debug.Log(gameObject.name + " attacking " + _target.name);
+        if(_target != null) _target.GetComponent<Troop>().TakeDamage(_damage);
+        _canAttack = false;
+        yield return new WaitForSeconds(2.0f);
+        // play attack animation
+        _canAttack = true;
     }
 
-    public void Die() {
-        throw new NotImplementedException();
+    public IEnumerator Die() {
+        Init.PlayerData.troops.Remove(gameObject);
+        yield return _waitForSeconds;
+        Destroy(gameObject);
     }
 
-    public void Check() {
+    public IEnumerator Check() {
+        if (gameObject == null) yield break;
+        yield return _waitForSeconds;
         if (isSelected) {
-            if (previousPos != moveTo) {
+            // if (CalculateDistance(moveTo) >= minDistance) {
+                if (_previousPos != moveTo) {
                 Move();
-                previousPos = moveTo;
+                _previousPos = moveTo;
+                }
+            // }
+            // else _pathFinder.isStopped = true;
+        }
+
+        if(!_targetIsSet) CheckForEnemiesNearby();
+        else {
+            if (_target != null) {
+                if (_target.GetComponent<Troop>().IsAlive) {
+                    transform.LookAt(_target);
+                    if (_canAttack) {
+                        StartCoroutine(Attack());
+                    }
+                }
+                else {
+                    _target = null;
+                    _targetIsSet = false;
+                }
             }
+        }
+        // check if there are any enemies in range
+        // StartCoroutine(CheckRange());
+    }
+
+    private void CheckForEnemiesNearby() {
+        // maybe replace the hitColliders with an OnTriggerEnter(Collider other) event??
+        
+        // Use the OverlapBox to detect if there are any other colliders within this box area.
+        // Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject.
+        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale * 2, Quaternion.identity, _targetMask);
+        // foreach (var c in hitColliders) {
+            // Debug.Log(gameObject.name + " is nearby " + c.name);
+        // }
+        if (hitColliders.Length > 0) {
+            _targetIsSet = true;
+            _target = hitColliders[0].transform;
         }
     }
 
     public void TakeDamage(int damage) {
-        throw new NotImplementedException();
+        _health -= damage;
     }
 
-
-    private void OnCollisionEnter(Collision other) {
-        Debug.Log("Collided with " + other.gameObject.name);
+    /// <summary>
+    /// Calculates the distance from Troop game object position to another position in the x and z coordinates
+    /// </summary>
+    private float CalculateDistance(Vector3 pos) {
+        var position = transform.position;
+        var xDif = position.x - pos.x;
+        var zDif = position.z - pos.z;
+        var distanceSquared = xDif * xDif + zDif * zDif;
+        return (float) Math.Sqrt(distanceSquared);
     }
 }

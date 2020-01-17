@@ -2,276 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e702e6a9-20ad-4feb-af2a-02ae853c3b9d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Map.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Map.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Troop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Troop.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStrings/Tags.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStrings/Tags.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BattleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BattleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Init.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Init.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Interfaces/ITroop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Interfaces/ITroop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Troop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Troop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/EditorInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorInstance.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CrashedAssetImports.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ProtocolInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ProtocolInstance.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/485d41-9d8e2afa3ddbc4a9d9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/485d41-9d8e2afa3ddbc4a9d9.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/485d41-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/485d41-mainStage.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/c81246-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/c81246-mainStage.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/Library/assetDatabase3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/0e/0e224a62c4b9544e2ad4fac875400142" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/0e/0e224a62c4b9544e2ad4fac875400142" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/0f/0ff521e080634479b3c0616acdfc6b30" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/0f/0ff521e080634479b3c0616acdfc6b30" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/6f/6ff13ab9376ff47d8a4f425488857517" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/6f/6ff13ab9376ff47d8a4f425488857517" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/6f/6ff13ab9376ff47d8a4f425488857517.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/6f/6ff13ab9376ff47d8a4f425488857517.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/8c/8c4a95f4f504745729000247a4885d5c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/8c/8c4a95f4f504745729000247a4885d5c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/9d/9d8e2afa3ddbc4a9d9906fe228c13c2b" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/9d/9d8e2afa3ddbc4a9d9906fe228c13c2b" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/dd/dd7a255b84835472898fd036b532f91f" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/dd/dd7a255b84835472898fd036b532f91f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/fe/fe05b479eff64cfb98d8ac9e0b9d1b15" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/fe/fe05b479eff64cfb98d8ac9e0b9d1b15" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-0057c61e33c9147d5915ab0fb682a42b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-011ac0b70ff3e4ffcba40a187d0580fb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-01726d51a78f14ad7922cec2d746e71d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-02b208da698514ddabdfeb7f7b34dce9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-04371b9320397426099a2a0ba2122daf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-06e4c0717dad7418e99d2f5594a66120" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-07659f1267a6a445b9ec6afe308ea510" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-080091d61ea354cce93c68a22491a967" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-0942b5411a84b4d37bd23895fec8ee57" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-09db8c4a0f83b4c52b55d9c768b883d4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-0e42cbfa3060b4854a4760118a19c894" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-0ee99ae2ff73e497d82ec9393ba61ea2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-0f956de4b52f149f9af99f62a1d29da6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-10fc23f837e3641019c7b5f4b83179b8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-12384ecb9844a4faa9d4c2d36bf6a8f5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-14bf2395a15414b55bf70c67aeee36a2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-1530d8a98d435400ab96c9043c05e8c1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-170927c3137c9460a85ebf1f69dc974e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-170ef89ad777644139cb673d93a422af" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-177ba50c04f1d4034bd0a0494c829bfb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-18f19fb510c2947419a2314025b7c581" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-1ed1002b12aaf4af29ada7203e988cc6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-1f55bd7addd464f85a1defe59b086299" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-21791aad46dfe44e4bb1ce145ca3af52" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-21915223aee024d8bbc0038e94d8e321" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-21f0750952f0e437bb5b7ce8a00cbde6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-2270d0b74b11a48d88d64b1034464da0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-22754e03f09cf4526b6347f55914a643" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-229a5cf65910d4452a3b5105df619bd8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-24943bdcd379044099f914761ee69248" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-274f2d9e534944cb1aa5eb5dc1955d80" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-2889d6f4046fb4689a2f7bcbf2cc396e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-2a75ddf4defc44f258caf8e210632085" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-2c47662aff8de483e8d352635cbf0699" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-2e6b62b81ce2e4ae490accae3ce3f4e7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-2eed3a865c9fe493a853302f20dfb572" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-2fae95d356780484da95b0d7c3afb4ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-2fcfeb25c5438432cbdf348b6b81a3f9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-30020b0d0f64b42379ac5c2b2015f3d6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-30072a5f721f94100a6ca0f1107bcfca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-3149521fb9a2e4d5ab0cfd0635bd270f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-315811ed567dd483194a925ff7925b00" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-31ff8a6d78a2c422a970ed4dcd6a6707" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-320e4e06514a04a529e3af5bdbf31249" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-3432a2bf030074f4b8a39883ddc00a2c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-34b7d52cee39a487e94de15b8ed04874" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-3cf0e07a5f9314686a5660eb1b408491" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-3fcbf5ea16e66455b84d65d0d2b09771" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4205527443a9d48519f110121e969a7e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-43f4fad837d9e4b98935229ac9f7e2c6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-447de4fce25c9415dbfc72b9575eeb85" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-45347fc6688cd4a13bfd8e3c111748b8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-463f6620043ac4e1cba31ab1d3b96ca4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-47875937f4a1946728959df00ab9f9db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-47a58c5c651ff41dc986422e40e3ab48" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4806046103d614e4c88372b82a14eacb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-48c2c1f1ea46f40a99caeef2604516fd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4a9972bec6be0444ab60c00a99f51d72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4bd24c8a8bb574c8eba121c7853ac27c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4cb8ec5e330104154a001fefa6e0caf8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4ce8dc748d3b54d179a8d01004f23f9e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4d663ae12e97d46b2800ddfc32639b6f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4e0fffa2a840249d88a5aa539956d83f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4e3ad33d4dc9348e5a94f27fe5325c85" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4ef4c705319b64db6b3abf955f1acd27" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-4f85be5e382a141bf89f450e380a47b2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-5102e62188cec46548e56c40a4ac1545" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-51038d96224d84ef2b492cd8aef7177f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-5108156271dff491b977443415a0d1d2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-515858092231240af8d40526cc433241" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-524997972ca1c4720ae409c085a7238d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-52f75b98d9fa644d5acab90fe1c32888" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-53a0f654657744c928a29a63fbc5b8ac" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-544b7a6811d8a4c2c9443940152b9b2e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-55b6a4786041144c8ba56e299c6b54c6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-56873cfa2497e43569e3bbfbb1ad9125" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-57aca14fd58eb47ae8e13d313d80ac82" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-57e5308899bfb4a64b627a866675b0c1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-5835f06d734bb49c0b267c7e4c578a32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-5867a789c5b6649ddb3f7c96e8902b69" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-58e997b1a0bd94fdca987dcbf18e4ea6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-58f72307536cc44b18dc28bda286d854" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-59ef43de00c3c4218b876305b7cecdd3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-5ac1f7690422343c1a998245e3695cc6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-5aee8cbb124064b7f826fda80ae7999c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-5f035c9832b8b4a2a9ee481b069b30db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-602223e7220874d678e7b7daddf65c5a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-60a951ede3bed4b86a0a44eecc445b11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-628c59b083599480e895bf38d8c4d8de" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-62e2bc329f864478fb960215dd79ad4f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-641be3daf6be14003a278ccc5b49fea3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-644fd928c0d1342b7a76dca2191b48ed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-645d4c808515f421fa52ca9fed1ee1bb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-6587d95ad38a24d1898762c1ebcc3f88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-66091c1f459f846d7adc64b371faf45e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-6613299aefd604ccd9a2c7ca9f49bde3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-66f8b7c374c5846b99895c54df13b522" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-681f867d1edb34917a0344421e2efdb5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-69fa36d9b81b04795be6097e6b5a4166" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-6a3df2b0cf0ab48db8dd3c7085eb7168" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-6c570a3596f734a35967f9cdfed66b21" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-6c8c30ba6dcd04168bb1bbe6c69ccdb7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-6e0fb11e4747f4d8eb8583bb89cc2331" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-6ed2ff48dc8de45fc9507bf247a19b08" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-707990231f11946f6ba1ceaff02db134" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-711b7d90ebbac424b8d03c120cbe2bbc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-723d3098618814967a27611a27a7dd01" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-724bc05a446ea4ebbb0cd2bca2caffa8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-725eb82e4ed05423caf5e61369b4d564" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-73f6d36c3bc5c4e3c819922c9f1afe02" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-750d94b83229b4470bae20edc698193e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-7549aa6ad2f24415098abcb004238546" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-7743d1918b1514c25a24bfa43b490c95" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-7afffd5cd1d5c4f0097ca9aad165a9d8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-7b77b0b9a7811466a97535ba993896bd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-7bbb2674bd0b14b0bacb9184ef105c1b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-7cc94996bf52d46c8b5c582090e56863" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-7e196c336cf4b4e7f9e7703841796015" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-7f80c5b341cc44276ae8e13bafc6b3ae" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-815bcf5c77a164cb591b948cdeafc5df" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8207f9feae89946a08605c7a835cb032" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-82f74b6cd01fb4687a9137bca33f9eff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-845595c8d6e4545498cbd25563bc981a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8572d8a83dd8b49db8b2cbee740b8d0f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8598badf9e3e6401fb238b4aeccce36c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8603da280e9fd4cb28ec046bc049947f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-864caab92e50b4bd2b8da9e8ccb71f87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-877755b2ffbb24e5ca89b23cf94b3726" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-885d271b3200e483cbc36a0183dbfd88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-89869eb59d6d6414895a18b06cf323b2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8a7411abf4860492cb1be62a0c054780" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8bc364c4d6bd14b6d8a19613623699fe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8bc59d1a38c6c4e8f852e059c1f1b2e6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8c679301cb4434617931232102b7d473" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8cd7de11c8829452cbb7b60cbfca58c6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8e055f0eb17924df28ecede509255613" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-8f35c64bc4c3c44c7bb4f01696454e5b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-907f3459e0ff2468e97069737666591e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-952c671a24fea4424a981b41a4692af8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9576519c213df41d1b0e8c36d73f041b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-96f4f03942e71458ba3d312c09ac2289" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-979ebbdda5e6a4587be17f6be0056aa6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-988a0be64daa348659bde7eb7614825d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-994b1b37041b34fa8b334561d911d929" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-999efaf2d21f9414ca8502ec92b9bd34" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-99d4d73a1c39d4a6ebf6eaa766dafb86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-99dc4346cc86e4e8aa882bf5b406f097" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9a8370d283ba54117b9aa0d1d8f18af9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9adeb4a1b41fb4ee8a54ec282b5226a2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9ae2e8f0a67e34bababe0446f98f8f93" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9ae4b233fd7744edaa4b702e2a4c3a2d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9ccaa58598a8f4e44a64b4b3a34d4fd4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9ce6fc9a3d30644afa991384a50d766e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9d5a3a5e054b6479385f73521fd0d7d6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9f1005bf64e9847ae99511b77ed71052" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9f4ab54be1c8048d5818236da3bbf65d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9fb5776bb1a2449b6a72ae26814f8106" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-9fe067d7b14ee4e689d06cfe6d2b2003" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a078109b24738488cac44b0c44df682c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a0a2c53f2b7ed41b39f6a90e7ba4b8ba" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a0b5750c3eb574d8e9f785c3e4ed58bc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a36d520d2bc7746618a3bbe16ac39472" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a3d34ee5a49364d39bda5e4bcb26f335" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a4a04e8e898b848088b6ec8fa470fe40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a5b64c82477f044078c7484c234f406f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a5c025e0dde1c4ab48be127f29a86900" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a5d277429d5a34373abbd63ddcb2aa31" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a611fb3849b7b4b8bb2a4516cc4518af" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a75cbb14f03704b50999ddcaca7a04ac" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-a85d79747da4f414c9286aceecd298e9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-ab138906f13584910a73d09fe6db51da" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-ab72d9806ad9545f18aa6d1dbe5b5791" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-ab9a3810baa8740e7af0dfd1578ceb7f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-ad5971b08bfa543688b952a8d7784b17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-af7e53a26379a4a83a1f1d8b2ffded63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-b01cb79a03ff843eeaaa2534bcd68fde" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-b294a24a56d784d83a30350f5befb184" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-b853d18c5689d471da14306603eefdf8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-b859aec4f9b81434d827846e8ce9bd30" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-b914d978197bb4332aeafe3819622c87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-b91e97d251ece41b798ee8cb505cb232" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-ba0556a20445b448f88aaa03525f208f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-baae104ba33824f738c1f13554a7b754" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-be5b50c72dee849da8206688fa5e68f6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-c14e787baf3d7420a95d27132a8d8dd7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-c1610aaf6de704c59a81a280e2cf6cab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-c414b7bbec21b426695b5f2964d19767" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-c44c194585b0c492087b6989b718040a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-c539139f9f65c4ef5bfec04e20e107b7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-c6cb319d817b644c8a9e9c6a0b884ece" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-c6d5e99b36e524f58b866a3576aba863" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-c82b80e5c5e184c078ef9518d74a126a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-ca21f97e837d04b5c8080facf132c21e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-ca4bf542f73e54bc2b98964946466e99" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-cafad32103477464ea04e91267aa8ac4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-cd33198b64fc24f0b9b7da9987ac8b54" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-ce7274b6ee79c45d4853e8998ce4b551" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-cf8644e581ff6416d84b826122450a20" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-d13aae06a1dcc4864bb130a2f332b91b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-d3474f05a11354bd6b89140dbd08271e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-d3a935fc468ff44b98d0ea9f9081d637" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-d4b128bea108440c1a2e06478c244bdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-d4dff9fd3cb38446bad27f62e487cfde" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-d519c5579b3d04f11ba1661d3dde476a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-d52d7f455569c44bb9c6897622bb8d6d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-d74cdc7a50a3a472fb0c72cb387a35f2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-d8cce13fabae24d05a264ccf4500394e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-d9b820d84d6824a74a8d4414a141fce2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-db2b0b0d54cb44b4e88ad3e66cdfae10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-db3c8f075e6a04cefa6681e96e93aa8b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-dd0942b090c254e129e063219eca08d3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-dd55a11a1720b48bb8f16f0606884371" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-de9191be661a14a458ffeff1337a8e22" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-dee211437b0dc46b9813b871616b215f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-df5ee9eba07a94872b725fef83817c42" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-e3ada157cb5344811ae5d2d76de5c938" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-e4126f14ea499488fa13959acd9f606e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-e8d9eb7ef0d284e5eb09c48acee96ff7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-e916ecf7d79374cf6aa9efd7f54c1a2c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-eadaee20286b941e2b7a55f38200bb9d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-eb252f431191745e2a567d8b30ab8867" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-eb9292eea64f542e8808ad33bba835b6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-ee08a2165b7c1480783785ca0902ae5c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-eeb6110e9e3c1441d8b2a962827fa0b4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-ef0b429de76bd4909882920ff681a622" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f094f452d65b6495da3fb8dbaa0e5e8a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f0dfe93f70d834ee9a20ecab21863b69" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f1998bccd1b7540ca8301b9f28d21c7e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f27a713646bc7444897c7cc1778e429a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f4a4d937495804261b6c93ef80d04993" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f6187d4c5d37546afae17187674f52b6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f61f6bd72e90d41d48d4e690052cc586" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f7528362179084a0dbc15747b7658c8d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f767c3d6d75f14ba09d9b381dab2e302" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f809786933f3145c69b6c851cfe38d94" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f9416a673b790439ab1e11ff996bdd18" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f95a0a7d8aa1748b2a634324bb41e2ee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f96e024527e4d4d41b9d3f8319d349e9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f9988bf0e15b54406a51fc9b3dc6fb5b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-f9cb2d06d040541e48c86e7bfb39da53" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Temp/UnityTempFile-fb6c155e0f5aa462e89ad327a841ea0a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" beforeDir="false" afterPath="$PROJECT_DIR$/Temp/__Backupscenes/0.backup" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -291,6 +47,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameStrings/SceneNames.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/ITroop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -306,23 +63,27 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameStrings/SceneNames.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/ITroop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameStrings/Tags.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Troop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Init.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/ITroop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Troop.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1WUiukOsfBPVgbtAIfl3UA17PjY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -338,10 +99,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="37619">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="37619" />
       <method v="2" />
     </configuration>
   </component>
@@ -368,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1579210800100</updated>
       <workItem from="1579210806203" duration="15859000" />
-      <workItem from="1579282062575" duration="963000" />
+      <workItem from="1579282062575" duration="11349000" />
     </task>
     <servers />
   </component>
@@ -388,7 +149,82 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state width="472" height="466" key="DebuggerActiveHint" timestamp="1579296842523">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="472" height="466" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1579296842523" />
+    <state width="1398" height="303" key="GridCell.Tab.0.bottom" timestamp="1579297141142">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1579297141142" />
+    <state width="1398" height="303" key="GridCell.Tab.0.center" timestamp="1579297141140">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1579297141140" />
+    <state width="1398" height="303" key="GridCell.Tab.0.left" timestamp="1579297141138">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1579297141138" />
+    <state width="1398" height="303" key="GridCell.Tab.0.right" timestamp="1579297141141">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1579297141141" />
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom" timestamp="1579297141145">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1579297141145" />
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom/0.23.1440.817@0.23.1440.817" timestamp="1579296731935" />
+    <state width="1398" height="303" key="GridCell.Tab.1.center" timestamp="1579297141143">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1579297141143" />
+    <state width="1398" height="303" key="GridCell.Tab.1.center/0.23.1440.817@0.23.1440.817" timestamp="1579296731933" />
+    <state width="1398" height="303" key="GridCell.Tab.1.left" timestamp="1579297141143">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1579297141143" />
+    <state width="1398" height="303" key="GridCell.Tab.1.left/0.23.1440.817@0.23.1440.817" timestamp="1579296731933" />
+    <state width="1398" height="303" key="GridCell.Tab.1.right" timestamp="1579297141144">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1579297141144" />
+    <state width="1398" height="303" key="GridCell.Tab.1.right/0.23.1440.817@0.23.1440.817" timestamp="1579296731934" />
+    <state width="1398" height="303" key="GridCell.Tab.2.bottom" timestamp="1579297141147">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.2.bottom/0.0.1440.900@0.0.1440.900" timestamp="1579297141147" />
+    <state width="1398" height="303" key="GridCell.Tab.2.center" timestamp="1579297141146">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.2.center/0.0.1440.900@0.0.1440.900" timestamp="1579297141146" />
+    <state width="1398" height="303" key="GridCell.Tab.2.left" timestamp="1579297141145">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.2.left/0.0.1440.900@0.0.1440.900" timestamp="1579297141145" />
+    <state width="1398" height="303" key="GridCell.Tab.2.right" timestamp="1579297141146">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.2.right/0.0.1440.900@0.0.1440.900" timestamp="1579297141146" />
+    <state width="1398" height="303" key="GridCell.Tab.3.bottom" timestamp="1579297141150">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.3.bottom/0.0.1440.900@0.0.1440.900" timestamp="1579297141150" />
+    <state width="1398" height="303" key="GridCell.Tab.3.center" timestamp="1579297141148">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.3.center/0.0.1440.900@0.0.1440.900" timestamp="1579297141148" />
+    <state width="1398" height="303" key="GridCell.Tab.3.left" timestamp="1579297141148">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.3.left/0.0.1440.900@0.0.1440.900" timestamp="1579297141148" />
+    <state width="1398" height="303" key="GridCell.Tab.3.right" timestamp="1579297141149">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.3.right/0.0.1440.900@0.0.1440.900" timestamp="1579297141149" />
     <state x="417" y="180" key="RiderGenerateDialog" timestamp="1579275274747">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
