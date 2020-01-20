@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2815070079156294046}
   - component: {fileID: 298423282224288303}
   - component: {fileID: 7204969526240354982}
+  - component: {fileID: 3780384791688776712}
   m_Layer: 0
   m_Name: SwordsManWeapons
   m_TagString: Untagged
@@ -105,3 +106,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1663d86cc86488cacd19c4005a70ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3780384791688776712
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6288013245226052335}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 926b9452e89094e0dbbf2e1e4e5c8fd4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

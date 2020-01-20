@@ -9,7 +9,11 @@ using UnityEngine.AI;
 public class Troop : MonoBehaviour, ITroop {
     private NavMeshAgent _pathFinder;
 
-    public enum TroopType { Swordsman, Archer };
+    public enum TroopType {
+        Swordsman,
+        Archer
+    };
+
     public TroopType troopType;
 
     public bool IsAlive { get; set; }
@@ -21,16 +25,19 @@ public class Troop : MonoBehaviour, ITroop {
     public bool isControlled;
     public string targetTag;
 
+    private GameObject _weapon;
+    private Animator _weaponAnimation;
+
     // position to go to
     public Vector3 moveTo;
     private Vector3 _previousPos;
 
     private bool _reachedDestination;
-    
+
     private bool _targetIsSet;
     private Transform _target;
     private bool _canAttack; // has the time interval between attacks finished??
-    
+
     [SerializeField] private float minDistance = 2.0f;
     [SerializeField] private WaitForSeconds _waitForSeconds;
     private LayerMask _targetMask;
@@ -56,6 +63,7 @@ public class Troop : MonoBehaviour, ITroop {
             IsAlive = false;
             StartCoroutine(Die());
         }
+
         StartCoroutine(Check());
     }
 
@@ -77,6 +85,7 @@ public class Troop : MonoBehaviour, ITroop {
             targetTag = Init.Tags.PlayerTroop;
             _targetMask = LayerMask.GetMask(Init.Tags.PlayerTroop);
         }
+
         // populate if either swordsman or archer
         switch (troopType) {
             case TroopType.Swordsman: {
@@ -85,16 +94,22 @@ public class Troop : MonoBehaviour, ITroop {
                 if (swordsManWeapons != null) {
                     swordsManWeapons.transform.SetParent(gameObject.transform);
                 }
+
+                _weapon = swordsManWeapons;
                 break;
             }
             case TroopType.Archer: {
                 GameObject archerWeapons =
                     Instantiate(Resources.Load("Prefabs/ArcherWeapons"), transform) as GameObject;
                 if (archerWeapons != null) archerWeapons.transform.SetParent(gameObject.transform);
+                _weapon = archerWeapons;
                 break;
             }
         }
+
+        if (_weapon != null) _weaponAnimation = _weapon.GetComponent<Animator>();
     }
+
     public void Move() {
         _pathFinder.SetDestination(moveTo);
     }
@@ -102,7 +117,8 @@ public class Troop : MonoBehaviour, ITroop {
     public IEnumerator Attack() {
         // the wait for seconds should be higher than the attack animation --> like around twice or so
         Debug.Log(gameObject.name + " attacking " + _target.name);
-        if(_target != null) _target.GetComponent<Troop>().TakeDamage(_damage);
+        if (_target != null) _target.GetComponent<Troop>().TakeDamage(_damage);
+        _weaponAnimation.SetBool("IsAttacking", _canAttack);
         _canAttack = false;
         yield return new WaitForSeconds(2.0f);
         // play attack animation
@@ -120,15 +136,16 @@ public class Troop : MonoBehaviour, ITroop {
         yield return _waitForSeconds;
         if (isSelected) {
             // if (CalculateDistance(moveTo) >= minDistance) {
-                if (_previousPos != moveTo) {
+            if (_previousPos != moveTo) {
                 Move();
                 _previousPos = moveTo;
-                }
+            }
+
             // }
             // else _pathFinder.isStopped = true;
         }
 
-        if(!_targetIsSet) CheckForEnemiesNearby();
+        if (!_targetIsSet) CheckForEnemiesNearby();
         else {
             if (_target != null) {
                 if (_target.GetComponent<Troop>().IsAlive) {
@@ -143,18 +160,22 @@ public class Troop : MonoBehaviour, ITroop {
                 }
             }
         }
+
         // check if there are any enemies in range
         // StartCoroutine(CheckRange());
     }
 
+    
+    
     private void CheckForEnemiesNearby() {
         // maybe replace the hitColliders with an OnTriggerEnter(Collider other) event??
-        
+
         // Use the OverlapBox to detect if there are any other colliders within this box area.
         // Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject.
-        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale * 2, Quaternion.identity, _targetMask);
+        Collider [] hitColliders = Physics.OverlapBox(transform.position, transform.localScale * _range,
+            Quaternion.identity, _targetMask);
         // foreach (var c in hitColliders) {
-            // Debug.Log(gameObject.name + " is nearby " + c.name);
+        // Debug.Log(gameObject.name + " is nearby " + c.name);
         // }
         if (hitColliders.Length > 0) {
             _targetIsSet = true;
