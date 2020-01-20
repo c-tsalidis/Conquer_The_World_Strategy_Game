@@ -1,6 +1,7 @@
 using System;
 using GameStrings;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Init : MonoBehaviour {
@@ -23,6 +24,10 @@ public class Init : MonoBehaviour {
     
     // materials
     [SerializeField] private Material [] troopMaterials;
+    
+    // selection box image
+    public RawImage selectionBoxImg;
+    public Canvas canvas;
 
     private void Awake() {
         // Create Init if it doesn't exist --> singleton
