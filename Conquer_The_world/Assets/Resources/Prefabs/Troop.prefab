@@ -53,6 +53,10 @@ MonoBehaviour:
   targetTag: 
   moveTo: {x: 0, y: 0, z: 0}
   minDistance: 2
+  archerVisuals: {fileID: 1214642450588486161, guid: 974c70b8f4ab145e1bdaacb5c24c221b,
+    type: 3}
+  swordsmanVisuals: {fileID: 1214642450588486161, guid: 974c70b8f4ab145e1bdaacb5c24c221b,
+    type: 3}
 --- !u!136 &2013691499846698623
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -149,13 +153,14 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7199165127595651474}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

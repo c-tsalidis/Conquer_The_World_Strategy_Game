@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using GameStrings;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,7 +25,7 @@ public class Init : MonoBehaviour {
     
     // materials
     [SerializeField] private Material [] troopMaterials;
-    
+
     // selection box image
     public RawImage selectionBoxImg;
     public Canvas canvas;
@@ -72,6 +73,7 @@ public class Init : MonoBehaviour {
         CreateTroops();
     }
 
+    // TODO --> Move this method to the Troop class
     private void CreateTroops() {
         // if player doesn't have any troops, give him 5 of each troop type: 5 swordsmen and 5 archers
         if (PlayerData.troops.Count <= 0) {
@@ -84,7 +86,7 @@ public class Init : MonoBehaviour {
                     else t.troopType = Troop.TroopType.Archer;
                     t.tag = Tags.PlayerTroop;
                     t.PopulateInstance(1);
-                    t.transform.Find("Body_Visuals").GetComponent<Renderer>().material = troopMaterials[0]; // player troop material
+                    // t.transform.Find("Body_Visuals").GetComponent<Renderer>().material = troopMaterials[0]; // player troop material
                     PlayerData.troops.Add(troop);
                 }
                 else Debug.Log("Troop prefab is null");
@@ -100,7 +102,7 @@ public class Init : MonoBehaviour {
                 if (i < 5) t.troopType = Troop.TroopType.Swordsman;
                 else t.troopType = Troop.TroopType.Archer;
                 t.PopulateInstance(1);
-                t.transform.Find("Body_Visuals").GetComponent<Renderer>().material = troopMaterials[1]; // enemy material
+                // t.transform.Find("Body_Visuals").GetComponent<Renderer>().material = troopMaterials[1]; // enemy material
                 t.tag = Tags.Enemy;
             }
             else Debug.Log("Troop prefab is null");

@@ -12,6 +12,8 @@ public class PlayerData : MonoBehaviour {
     public List<GameObject> troops;
     public int [] citiesConquered;
 
+    public List<Troop> selectedTroops = new List<Troop>();
+    
     public PlayerData() {
         troops = new List<GameObject>();
     }

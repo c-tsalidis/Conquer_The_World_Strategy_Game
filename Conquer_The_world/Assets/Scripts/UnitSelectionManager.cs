@@ -40,14 +40,21 @@ public class UnitSelectionManager : MonoBehaviour {
                 // maybe get the rays that hit only a specific layer??
                 Transform objectHit = hit.transform;
                 if (objectHit.CompareTag(Init.Tags.PlayerTroop)) {
-                    Debug.Log("Selected " + objectHit.transform.name);
+                    // Debug.Log("Selected " + objectHit.transform.name);
                     var t = objectHit.GetComponent<Troop>();
                     t.isSelected = true;
+                    if(!Init.PlayerData.selectedTroops.Contains(t)) Init.PlayerData.selectedTroops.Add(t);
+                }
+                else if (objectHit.CompareTag(Init.Tags.Enemy)) {
+                    foreach (var selectedTroop in Init.PlayerData.selectedTroops) {
+                        selectedTroop.target = objectHit;
+                        objectHit.GetComponent<Troop>().targetedBy.Add(selectedTroop);
+                    }
                 }
                 else if (objectHit.CompareTag(Init.Tags.Ground)) {
                     // get the point where the ray hits the ground plane
                     _moveTo = hit.point;
-                    Debug.Log("Map hit - Set pos to " + _moveTo);
+                    // Debug.Log("Map hit - Set pos to " + _moveTo);
                     // go through all the selected units and move them
                     foreach (var troop in Init.PlayerData.troops) {
                         Troop t = troop.GetComponent<Troop>();
@@ -88,18 +95,17 @@ public class UnitSelectionManager : MonoBehaviour {
                     // it means that the troop is inside the selecting box
                     var t = troop.GetComponent<Troop>();
                     t.isSelected = true;
+                    if(!Init.PlayerData.selectedTroops.Contains(t)) Init.PlayerData.selectedTroops.Add(t);
                 }
             }
         }
 
         // if the players wants to deselect troops, they will press the key "q" from the keyboard
         if (Input.GetKeyDown("q")) {
-            foreach (var troop in Init.PlayerData.troops) {
-                Troop t = troop.GetComponent<Troop>();
-                if (t != null) {
-                    if (t.isSelected) t.isSelected = false;
-                }
+            foreach (var troop in Init.PlayerData.selectedTroops) {
+                troop.GetComponent<Troop>().isSelected = false;
             }
+            Init.PlayerData.selectedTroops.Clear();
         }
     }
 }
