@@ -39,26 +39,32 @@ public class UnitSelectionManager : MonoBehaviour {
             if (Physics.Raycast(ray, out hit)) {
                 // maybe get the rays that hit only a specific layer??
                 Transform objectHit = hit.transform;
-                if (objectHit.CompareTag(Init.Tags.PlayerTroop)) {
-                    // Debug.Log("Selected " + objectHit.transform.name);
-                    var t = objectHit.GetComponent<Troop>();
-                    t.isSelected = true;
-                    if(!Init.PlayerData.selectedTroops.Contains(t)) Init.PlayerData.selectedTroops.Add(t);
-                }
-                else if (objectHit.CompareTag(Init.Tags.Enemy)) {
-                    foreach (var selectedTroop in Init.PlayerData.selectedTroops) {
-                        if (selectedTroop.target == null) {
-                            selectedTroop.target = objectHit;
-                            objectHit.GetComponent<Troop>().targetedBy.Add(selectedTroop);
+                if (objectHit.CompareTag(Init.Tags.Troop)) {
+                    foreach (var player in Init.Players) {
+                        var p = Init.localPlayer;
+                        if (p.isLocalPlayer) {
+                            // select troop if it's the player's troop
+                            var t = objectHit.GetComponent<Troop>();
+                            t.isSelected = true;
+                            if(!p.selectedTroops.Contains(t)) p.selectedTroops.Add(t);
+                        }
+                        else {
+                            foreach (var selectedTroop in p.selectedTroops) {
+                                if (selectedTroop.target == null) {
+                                    selectedTroop.target = objectHit;
+                                    objectHit.GetComponent<Troop>().targetedBy.Add(selectedTroop);
+                                }
+                            }
                         }
                     }
                 }
-                else if (objectHit.CompareTag(Init.Tags.Ground)) {
+                
+                if (objectHit.gameObject.layer == LayerMask.NameToLayer(Init.Tags.Ground)) {
                     // get the point where the ray hits the ground plane
                     _moveTo = hit.point;
                     // Debug.Log("Map hit - Set pos to " + _moveTo);
                     // go through all the selected units and move them
-                    foreach (var troop in Init.PlayerData.troops) {
+                    foreach (var troop in Init.localPlayer.troops) {
                         Troop t = troop.GetComponent<Troop>();
                         if (t.isSelected) {
                             t.moveTo = _moveTo;
@@ -89,7 +95,7 @@ public class UnitSelectionManager : MonoBehaviour {
             }
 
             // Looping through all the troops
-            foreach (var troop in Init.PlayerData.troops) {
+            foreach (var troop in Init.localPlayer.troops) {
                 // If the screenPosition of the world object troop is within our selection bounds, we can add it to our selection
                 Vector3 screenPos = Init.MainCamera.WorldToScreenPoint(troop.transform.position);
                 screenPos.z = 0;
@@ -97,17 +103,17 @@ public class UnitSelectionManager : MonoBehaviour {
                     // it means that the troop is inside the selecting box
                     var t = troop.GetComponent<Troop>();
                     t.isSelected = true;
-                    if(!Init.PlayerData.selectedTroops.Contains(t)) Init.PlayerData.selectedTroops.Add(t);
+                    if(!Init.localPlayer.selectedTroops.Contains(t)) Init.localPlayer.selectedTroops.Add(t);
                 }
             }
         }
 
         // if the players wants to deselect troops, they will press the key "q" from the keyboard
         if (Input.GetKeyDown("q")) {
-            foreach (var troop in Init.PlayerData.selectedTroops) {
+            foreach (var troop in Init.localPlayer.selectedTroops) {
                 troop.GetComponent<Troop>().isSelected = false;
             }
-            Init.PlayerData.selectedTroops.Clear();
+            Init.localPlayer.selectedTroops.Clear();
         }
     }
 }

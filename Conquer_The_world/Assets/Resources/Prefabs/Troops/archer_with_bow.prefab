@@ -1858,7 +1858,7 @@ GameObject:
   - component: {fileID: 8966264658887827992}
   - component: {fileID: 5347404344305324042}
   m_Layer: 0
-  m_Name: archer_with_bow_model
+  m_Name: archer_with_bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2528,7 +2528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8701135822893674942
 Transform:
   m_ObjectHideFlags: 0

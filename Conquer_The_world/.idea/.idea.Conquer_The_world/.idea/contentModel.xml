@@ -6,6 +6,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="CameraController.cs" t="Include" />
+          <e p="EnemyDetector.cs" t="Include" />
           <e p="GameStrings" t="Include">
             <e p="SceneNames.cs" t="Include" />
             <e p="Tags.cs" t="Include" />
@@ -14,6 +15,8 @@
           <e p="Interfaces" t="Include">
             <e p="ITroop.cs" t="Include" />
           </e>
+          <e p="ObjectPooler.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
           <e p="PlayerData.cs" t="Include" />
           <e p="SavedValues" t="Include">
             <e p="SavedValues.cs" t="Include" />

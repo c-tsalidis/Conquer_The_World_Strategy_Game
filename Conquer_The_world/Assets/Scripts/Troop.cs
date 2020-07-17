@@ -17,6 +17,7 @@ public class Troop : MonoBehaviour, ITroop {
 
     public TroopType troopType;
 
+    public Player troopPlayer;
     public bool IsAlive { get; set; }
     public int _damage;
     public int _health;
@@ -34,8 +35,9 @@ public class Troop : MonoBehaviour, ITroop {
 
     private bool _reachedDestination;
 
-    private bool _targetIsSet;
+    public bool _targetIsSet;
     public Transform target;
+    private bool targetIsVisible = true;
     private bool _canAttack; // has the time interval between attacks finished??
     public bool _isAttacking = false;
     public bool _isRunning = false;
@@ -52,6 +54,12 @@ public class Troop : MonoBehaviour, ITroop {
     private float _attackAnimationTimeLength;
 
     public List<Troop> targetedBy = new List<Troop>();
+
+    [SerializeField] private GameObject arrow;
+    [SerializeField] private GameObject arrowSpawner;
+
+    private ObjectPooler _objectPooler;
+
 
     public Troop() {
         troopType = TroopType.Swordsman;
@@ -88,6 +96,10 @@ public class Troop : MonoBehaviour, ITroop {
 
         visuals.transform.SetParent(bodyVisuals);
         _animator = visuals.GetComponent<Animator>();
+
+        _objectPooler = arrowSpawner.GetComponent<ObjectPooler>();
+        _objectPooler.amountToPool = 15;
+        _objectPooler.objectToPool = arrow;
     }
 
     // TODO --> If enemy in range, attack. Else, run
@@ -117,24 +129,18 @@ public class Troop : MonoBehaviour, ITroop {
         StartCoroutine(Check());
     }
 
-    public void PopulateInstance(int level) {
+    public void PopulateInstance(Player player, int level) {
+        // set the player of this troop
+        troopPlayer = player;
+        
         // set the gameobject's name to the troop type
         gameObject.name = troopType + " | " + gameObject.tag;
         // set the target tag
-        if (gameObject.CompareTag(Init.Tags.PlayerTroop)) {
-            // set this gameobject's layer
-            gameObject.layer = LayerMask.NameToLayer(Init.Tags.PlayerTroop);
-            // set the target
-            targetTag = Init.Tags.Enemy;
-            _targetMask = LayerMask.GetMask(Init.Tags.Enemy);
-        }
-        else {
-            // set this gameobject's layer
-            gameObject.layer = LayerMask.NameToLayer(Init.Tags.Enemy);
-            // set the target
-            targetTag = Init.Tags.PlayerTroop;
-            _targetMask = LayerMask.GetMask(Init.Tags.PlayerTroop);
-        }
+        // set this gameobject's layer
+        gameObject.layer = LayerMask.NameToLayer(Init.Tags.Troop);
+        // set the target
+        targetTag = Init.Tags.Troop;
+        _targetMask = LayerMask.GetMask(Init.Tags.Troop);
 
         // populate if either swordsman or archer
         switch (troopType) {
@@ -161,7 +167,7 @@ public class Troop : MonoBehaviour, ITroop {
         _weapon = Instantiate(Resources.Load(weaponPathName), transform) as GameObject;
         if (_weapon != null) {
             _weapon.transform.SetParent(gameObject.transform);
-            if (gameObject.tag == Init.Tags.PlayerTroop) _weapon.GetComponent<Renderer>().material.color = Color.blue;
+            if (Init.localPlayer == troopPlayer) _weapon.GetComponent<Renderer>().material.color = Color.blue;
             else _weapon.GetComponent<Renderer>().material.color = Color.red;
         }
     }
@@ -180,25 +186,42 @@ public class Troop : MonoBehaviour, ITroop {
         // play attack animation
         // _animator.SetBool("isRunning", false);
         // _animator.SetBool("isShooting", true);
-        // _canAttack = false;
+        _canAttack = false;
         _isAttacking = true;
         _animator.SetBool("isShooting", true);
         // wait until attack animation is finished
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
+
+        if (!targetIsVisible) yield break;
+
+        if (troopType == TroopType.Archer) {
+            var arrow = _objectPooler.GetPooledObject();
+            if (arrow != null) {
+                arrow.SetActive(true);
+                var weapon = arrow.GetComponent<Weapon>();
+                weapon.Troop = this;
+                var rb = arrow.GetComponent<Rigidbody>();
+                var thrust = 100.0f;
+                arrow.transform.LookAt(target.transform);
+                rb.AddForce(arrowSpawner.transform.forward * thrust);
+            }
+        }
+
+        yield return new WaitForSeconds(1.0f);
         // the enemy takes damage
-        if (target != null && target.GetComponent<Troop>().IsAlive && this.IsAlive) target.GetComponent<Troop>(). TakeDamage(_damage, this);
+        // if (target != null && target.GetComponent<Troop>().IsAlive && this.IsAlive) target.GetComponent<Troop>(). TakeDamage(_damage, this);
         // _animator.SetBool("isShooting", false);
-        // _canAttack = true;
+        _canAttack = true;
     }
 
     public IEnumerator Die() {
         _pathFinder.speed = 0;
         _animator.SetBool("isDying", true);
-        if (Init.PlayerData.selectedTroops.Contains(this)) Init.PlayerData.selectedTroops.Remove(this);
+        if (Init.localPlayer.selectedTroops.Contains(this)) Init.localPlayer.selectedTroops.Remove(this);
         target = null;
         IsAlive = false;
         targetedBy.Clear();
-        Init.PlayerData.troops.Remove(gameObject);
+        if (Init.localPlayer.troops.Contains(gameObject)) Init.localPlayer.troops.Remove(gameObject);
         yield return new WaitForSeconds(20.0f);
         Destroy(gameObject);
     }
@@ -219,7 +242,7 @@ public class Troop : MonoBehaviour, ITroop {
         }
 
         if (!_targetIsSet) {
-            CheckForEnemiesNearby();
+            // CheckForEnemiesNearby();
             _isAttacking = false;
         }
         else {
@@ -227,9 +250,9 @@ public class Troop : MonoBehaviour, ITroop {
                 if (target.GetComponent<Troop>().IsAlive) {
                     transform.LookAt(target);
                     _isAttacking = true;
-                    // if (_canAttack) {
-                    StartCoroutine(Attack());
-                    // }
+                    if (_canAttack) {
+                        StartCoroutine(Attack());
+                    }
                 }
                 else {
                     target = null;
@@ -245,7 +268,7 @@ public class Troop : MonoBehaviour, ITroop {
 
     private void CheckForEnemiesNearby() {
         // maybe replace the hitColliders with an OnTriggerEnter(Collider other) event??
-        if(target != null) return;
+        if (target != null) return;
 
         // Use the OverlapBox to detect if there are any other colliders within this box area.
         // Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject.
@@ -255,6 +278,9 @@ public class Troop : MonoBehaviour, ITroop {
         // Debug.Log(gameObject.name + " is nearby " + c.name);
         // }
         if (hitColliders.Length > 0 && hitColliders[0].transform.GetComponent<Troop>().IsAlive) {
+            if (hitColliders[0].transform.GetComponent<Troop>().troopPlayer == Init.localPlayer) {
+                
+            }
             _targetIsSet = true;
             target = hitColliders[0].transform;
             target.GetComponent<Troop>().targetedBy.Add(this);
@@ -262,7 +288,7 @@ public class Troop : MonoBehaviour, ITroop {
     }
 
     public void TakeDamage(int damage, Troop damager) {
-        Debug.Log(damager.transform.name +  " injured " + transform.name + " by " + damage);
+        Debug.Log(damager.transform.name + " injured " + transform.name + " by " + damage);
         _health -= damage;
     }
 
@@ -275,5 +301,10 @@ public class Troop : MonoBehaviour, ITroop {
         var zDif = position.z - pos.z;
         var distanceSquared = xDif * xDif + zDif * zDif;
         return (float) Math.Sqrt(distanceSquared);
+    }
+
+    public bool isEnemy(Troop troop) {
+        if (this.troopPlayer == troop.troopPlayer) return false;
+        else return true;
     }
 }

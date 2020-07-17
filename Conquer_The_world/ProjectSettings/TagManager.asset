@@ -8,6 +8,8 @@ TagManager:
   - PlayerTroop
   - Map
   - Ground
+  - Arrow
+  - Troop
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - 
   - Enemy
   - PlayerTroop
-  - 
-  - 
+  - Troop
+  - Ground
   - 
   - 
   - 

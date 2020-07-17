@@ -15,20 +15,25 @@ public class Init : MonoBehaviour {
     private static UnitSelectionManager _unitSelectionManager;
 
     // instance of the Player
-    public static PlayerData PlayerData;
-    
+    // public static PlayerData PlayerData;
+    [SerializeField] private int numPlayers;
+    [SerializeField] private GameObject playerPrefab;
+    public static List<GameObject> Players = new List<GameObject>();
+    public static Player localPlayer;
+
     // instance of the camera movement controller
     private CameraController _cameraController;
 
     // main camera
     public static Camera MainCamera;
-    
+
     // materials
-    [SerializeField] private Material [] troopMaterials;
+    [SerializeField] private Material[] troopMaterials;
 
     // selection box image
     public RawImage selectionBoxImg;
     public Canvas canvas;
+
 
     private void Awake() {
         // Create Init if it doesn't exist --> singleton
@@ -45,8 +50,8 @@ public class Init : MonoBehaviour {
         _unitSelectionManager = gameObject.AddComponent<UnitSelectionManager>();
 
         // initialize the player instance
-        PlayerData = gameObject.AddComponent<PlayerData>();
-        
+        // PlayerData = gameObject.AddComponent<PlayerData>();
+
         // initialize camera controller
         _cameraController = gameObject.AddComponent<CameraController>();
 
@@ -56,9 +61,21 @@ public class Init : MonoBehaviour {
 
     private void SetUpGame() {
         // get the player saved data values
-        PlayerData.GetSavedDataValues();
-        
-        if(MainCamera == null) MainCamera = Camera.main;
+        // PlayerData.GetSavedDataValues();
+
+        for (int i = 0; i < numPlayers; i++) {
+            string playerName = "Player" + (i + 1);
+            Players.Add(Instantiate(Resources.Load("Prefabs/Player")) as GameObject);
+            var p = Players[i].GetComponent<Player>();
+            p.playerName = playerName;
+            Players[i].name = playerName;
+            if (i == 0) {
+                p.isLocalPlayer = true;
+                localPlayer = p;
+            }
+        }
+
+        if (MainCamera == null) MainCamera = Camera.main;
         LoadBattle();
     }
 
@@ -67,51 +84,50 @@ public class Init : MonoBehaviour {
         GameObject map = Instantiate(Resources.Load("Prefabs/Map")) as GameObject;
         if (map != null) {
             var t = map.transform.Find("Ground_Plane");
-            if(t != null) t.tag = Tags.Ground;
+            if (t != null) t.tag = Tags.Ground;
         }
+
         // create the troops
         CreateTroops();
     }
 
     // TODO --> Move this method to the Troop class
     private void CreateTroops() {
-        // if player doesn't have any troops, give him 5 of each troop type: 5 swordsmen and 5 archers
-        if (PlayerData.troops.Count <= 0) {
+        // create the troops for each player
+        foreach (var player in Players) {
+            var p = player.GetComponent<Player>();
             for (int i = 0; i < 10; i++) {
                 // var troop = Instantiate(Resources.Load("Prefabs/Troop"), transform.position + Vector3.right * (i + 1) + Vector3.up, Quaternion.identity) as GameObject;
-                var troop = Instantiate(Resources.Load("Prefabs/Troop"), new Vector3(Random.Range(-40, 40), 0, Random.Range(-40, 40)), Quaternion.identity) as GameObject;
+                var troop = Instantiate(Resources.Load("Prefabs/Troop"),
+                    new Vector3(Random.Range(-40, 40), 0, Random.Range(-40, 40)), Quaternion.identity) as GameObject;
+                troop.transform.SetParent(player.transform);
                 if (troop != null) {
                     Troop t = troop.GetComponent<Troop>();
                     if (i < 5) t.troopType = Troop.TroopType.Swordsman;
                     else t.troopType = Troop.TroopType.Archer;
-                    t.tag = Tags.PlayerTroop;
-                    t.PopulateInstance(1);
-                    // t.transform.Find("Body_Visuals").GetComponent<Renderer>().material = troopMaterials[0]; // player troop material
-                    PlayerData.troops.Add(troop);
+                    t.tag = Tags.Troop;
+                    t.PopulateInstance(p, 1);
+                    p.troops.Add(troop);
                 }
                 else Debug.Log("Troop prefab is null");
             }
         }
-        
-        // create the enemies
-        for (int i = 0; i < 10; i++) {
-            // var troop = Instantiate(Resources.Load("Prefabs/Troop"), transform.position + (Vector3.left* 10) + Vector3.right * (i + 1) + Vector3.up, Quaternion.identity) as GameObject;
-            var troop = Instantiate(Resources.Load("Prefabs/Troop"), new Vector3(Random.Range(-40, 40), 0, Random.Range(-40, 40)), Quaternion.identity) as GameObject;
-            if (troop != null) {
-                Troop t = troop.GetComponent<Troop>();
-                if (i < 5) t.troopType = Troop.TroopType.Swordsman;
-                else t.troopType = Troop.TroopType.Archer;
-                t.tag = Tags.Enemy;
-                t.PopulateInstance(1);
-                // t.transform.Find("Body_Visuals").GetComponent<Renderer>().material = troopMaterials[1]; // enemy material
+    }
+
+    public static Player GetLocalPlayer() {
+        Player currentPlayer = null;
+        foreach (var player in Players) {
+            var p = player.GetComponent<Player>();
+            if (p.isLocalPlayer) {
+                currentPlayer = p;
+                break;
             }
-            else Debug.Log("Troop prefab is null");
         }
 
-        // foreach (var troop in playerData.troops) { }
+        return currentPlayer;
     }
 
     private void Update() {
-        if(MainCamera != null) _cameraController.CheckInput();
+        if (MainCamera != null) _cameraController.CheckInput();
     }
 }
