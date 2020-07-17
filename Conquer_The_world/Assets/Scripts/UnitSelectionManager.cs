@@ -47,8 +47,10 @@ public class UnitSelectionManager : MonoBehaviour {
                 }
                 else if (objectHit.CompareTag(Init.Tags.Enemy)) {
                     foreach (var selectedTroop in Init.PlayerData.selectedTroops) {
-                        selectedTroop.target = objectHit;
-                        objectHit.GetComponent<Troop>().targetedBy.Add(selectedTroop);
+                        if (selectedTroop.target == null) {
+                            selectedTroop.target = objectHit;
+                            objectHit.GetComponent<Troop>().targetedBy.Add(selectedTroop);
+                        }
                     }
                 }
                 else if (objectHit.CompareTag(Init.Tags.Ground)) {

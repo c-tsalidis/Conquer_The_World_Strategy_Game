@@ -101,9 +101,9 @@ public class Init : MonoBehaviour {
                 Troop t = troop.GetComponent<Troop>();
                 if (i < 5) t.troopType = Troop.TroopType.Swordsman;
                 else t.troopType = Troop.TroopType.Archer;
+                t.tag = Tags.Enemy;
                 t.PopulateInstance(1);
                 // t.transform.Find("Body_Visuals").GetComponent<Renderer>().material = troopMaterials[1]; // enemy material
-                t.tag = Tags.Enemy;
             }
             else Debug.Log("Troop prefab is null");
         }

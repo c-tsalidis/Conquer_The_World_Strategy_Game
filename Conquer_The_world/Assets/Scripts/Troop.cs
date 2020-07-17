@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,10 +18,10 @@ public class Troop : MonoBehaviour, ITroop {
     public TroopType troopType;
 
     public bool IsAlive { get; set; }
-    private int _damage;
-    private int _health;
-    private float _speed;
-    private float _minEnemyDistToNotice;
+    public int _damage;
+    public int _health;
+    public float _speed;
+    public float _minEnemyDistToNotice;
     public bool isSelected;
     public bool isControlled;
     public string targetTag;
@@ -37,17 +38,18 @@ public class Troop : MonoBehaviour, ITroop {
     public Transform target;
     private bool _canAttack; // has the time interval between attacks finished??
     public bool _isAttacking = false;
+    public bool _isRunning = false;
 
     [SerializeField] private float minAttackRange = 2.0f;
     [SerializeField] private WaitForSeconds attackSpeedWaitForSeconds;
     private LayerMask _targetMask;
-    
+
     // troops meshes (visuals/renderers)
     [SerializeField] private GameObject archerVisuals;
     [SerializeField] private GameObject swordsmanVisuals;
 
     private Animator _animator;
-    private float _animationTimeLength;
+    private float _attackAnimationTimeLength;
 
     public List<Troop> targetedBy = new List<Troop>();
 
@@ -65,24 +67,29 @@ public class Troop : MonoBehaviour, ITroop {
 
     private void Start() {
         _pathFinder = GetComponent<NavMeshAgent>();
+        _pathFinder.stoppingDistance = minAttackRange - 2;
         var bodyVisuals = transform.Find("Body_Visuals"); // player troop visuals
         GameObject visuals = bodyVisuals.gameObject;
         if (troopType == TroopType.Archer) {
             if (archerVisuals == null) {
                 Debug.LogError("Troop type archer is null");
             }
+
             visuals = Instantiate(archerVisuals, visuals.transform.position + Vector3.down, visuals.transform.rotation);
         }
         else if (troopType == TroopType.Swordsman) {
             if (swordsmanVisuals == null) {
                 Debug.LogError("Troop type swordsman is null");
             }
-            visuals = Instantiate(swordsmanVisuals, visuals.transform.position + Vector3.down, visuals.transform.rotation);
+
+            visuals = Instantiate(swordsmanVisuals, visuals.transform.position + Vector3.down,
+                visuals.transform.rotation);
         }
+
         visuals.transform.SetParent(bodyVisuals);
         _animator = visuals.GetComponent<Animator>();
     }
-    
+
     // TODO --> If enemy in range, attack. Else, run
 
     private void Update() {
@@ -91,15 +98,29 @@ public class Troop : MonoBehaviour, ITroop {
             StartCoroutine(Die());
         }
 
-        if (_isAttacking) _pathFinder.speed = 0;
-        else _pathFinder.speed = _speed;
-        
+        if (_isAttacking) {
+            _isRunning = false;
+            _pathFinder.speed = 0;
+            _animator.SetBool("isRunning", false);
+            _animator.SetBool("isShooting", true);
+        }
+        else {
+            _animator.SetBool("isShooting", false);
+            if (_isRunning) {
+                _pathFinder.speed = _speed;
+                _animator.SetBool("isRunning", true);
+            }
+            else {
+                _animator.SetBool("isRunning", false);
+            }
+        }
+
         StartCoroutine(Check());
     }
 
     public void PopulateInstance(int level) {
         // set the gameobject's name to the troop type
-        gameObject.name = troopType.ToString();
+        gameObject.name = troopType + " | " + gameObject.tag;
         // set the target tag
         if (gameObject.CompareTag(Init.Tags.PlayerTroop)) {
             // set this gameobject's layer
@@ -123,6 +144,7 @@ public class Troop : MonoBehaviour, ITroop {
                 minAttackRange = 2.0f;
                 _minEnemyDistToNotice = 5.0f;
                 _speed = 2.0f;
+                _health = 10;
                 break;
             }
             case TroopType.Archer: {
@@ -130,67 +152,68 @@ public class Troop : MonoBehaviour, ITroop {
                 minAttackRange = 8.0f;
                 _minEnemyDistToNotice = 10.0f;
                 _speed = 3.5f;
+                _health = 5;
                 break;
             }
         }
-        gameObject.GetComponent<NavMeshAgent>().stoppingDistance = minAttackRange;
     }
 
     private void InstantiateWeapon(string weaponPathName) {
         _weapon = Instantiate(Resources.Load(weaponPathName), transform) as GameObject;
         if (_weapon != null) {
             _weapon.transform.SetParent(gameObject.transform);
-            if(gameObject.tag == Init.Tags.PlayerTroop) _weapon.GetComponent<Renderer>().material.color = Color.blue;
+            if (gameObject.tag == Init.Tags.PlayerTroop) _weapon.GetComponent<Renderer>().material.color = Color.blue;
             else _weapon.GetComponent<Renderer>().material.color = Color.red;
         }
     }
 
-    public void Move() {
+    public void Run() {
         _pathFinder.SetDestination(moveTo);
     }
 
     public IEnumerator Attack() {
-        if(_animationTimeLength == default) _animationTimeLength = _animator.runtimeAnimatorController.animationClips[0].length;
         // the wait for seconds should be higher than the attack animation --> like around twice or so
         // Debug.Log(gameObject.name + " attacking " + _target.name);
-        if (target == null) yield return null;
+        // if (target == null) yield return null;
         // _weaponAnimation.SetBool("IsAttacking", _canAttack);
-        
+
         // play attack animation
-        _animator.SetBool("isRunning", false);
+        // _animator.SetBool("isRunning", false);
+        // _animator.SetBool("isShooting", true);
+        // _canAttack = false;
+        _isAttacking = true;
         _animator.SetBool("isShooting", true);
-        _canAttack = false;
-        
         // wait until attack animation is finished
-        yield return new WaitForSeconds(_animationTimeLength);
+        yield return new WaitForSeconds(3.0f);
         // the enemy takes damage
-        if(target != null) target.GetComponent<Troop>().TakeDamage(_damage);
-        _animator.SetBool("isShooting", false);
+        if (target != null && target.GetComponent<Troop>().IsAlive && this.IsAlive) target.GetComponent<Troop>().TakeDamage(_damage);
+        // _animator.SetBool("isShooting", false);
         // _canAttack = true;
     }
 
     public IEnumerator Die() {
+        _pathFinder.speed = 0;
+        _animator.SetBool("isDying", true);
         if (Init.PlayerData.selectedTroops.Contains(this)) Init.PlayerData.selectedTroops.Remove(this);
-        if(target.GetComponent<Troop>().targetedBy.Contains(this)) target.GetComponent<Troop>().targetedBy.Remove(this);
+        targetedBy.Clear();
         Init.PlayerData.troops.Remove(gameObject);
-        yield return attackSpeedWaitForSeconds;
+        yield return new WaitForSeconds(20.0f);
         Destroy(gameObject);
     }
 
     public IEnumerator Check() {
         if (gameObject == null) yield break;
-        yield return attackSpeedWaitForSeconds;
-        if (isSelected && !_targetIsSet) {
+        yield return new WaitForSeconds(0.05f);
+        if (isSelected && !_isAttacking) {
             if (CalculateDistance(moveTo) >= minAttackRange) {
-            // if (_previousPos != moveTo) {
-            // if (Vector3.Distance(Vector3.right * 2 + moveTo, moveTo) > 1) {
-                Move();
-                // _previousPos = moveTo;
-                _animator.SetBool("isRunning", true);
+                // if (_previousPos != moveTo) {
+                // if (Vector3.Distance(Vector3.right * 2 + moveTo, moveTo) > 1) {
+                Run();
+                _isRunning = true;
             }
             else {
                 // _pathFinder.isStopped = true;
-                _animator.SetBool("isRunning", false);
+                _isRunning = false;
             }
         }
 
@@ -204,7 +227,7 @@ public class Troop : MonoBehaviour, ITroop {
                     transform.LookAt(target);
                     _isAttacking = true;
                     // if (_canAttack) {
-                        StartCoroutine(Attack());
+                    StartCoroutine(Attack());
                     // }
                 }
                 else {
@@ -218,19 +241,18 @@ public class Troop : MonoBehaviour, ITroop {
         // StartCoroutine(CheckRange());
     }
 
-    
-    
+
     private void CheckForEnemiesNearby() {
         // maybe replace the hitColliders with an OnTriggerEnter(Collider other) event??
 
         // Use the OverlapBox to detect if there are any other colliders within this box area.
         // Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject.
-        Collider [] hitColliders = Physics.OverlapBox(transform.position, transform.localScale * _minEnemyDistToNotice,
+        Collider[] hitColliders = Physics.OverlapBox(transform.position, transform.localScale * _minEnemyDistToNotice,
             Quaternion.identity, _targetMask);
         // foreach (var c in hitColliders) {
         // Debug.Log(gameObject.name + " is nearby " + c.name);
         // }
-        if (hitColliders.Length > 0) {
+        if (hitColliders.Length > 0 && hitColliders[0].transform.GetComponent<Troop>().IsAlive) {
             _targetIsSet = true;
             target = hitColliders[0].transform;
             target.GetComponent<Troop>().targetedBy.Add(this);

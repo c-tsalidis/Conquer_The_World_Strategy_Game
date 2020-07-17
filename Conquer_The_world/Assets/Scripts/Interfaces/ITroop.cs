@@ -3,7 +3,7 @@ using System.Collections;
 namespace Interfaces {
     public interface ITroop {
         void PopulateInstance(int level);
-        void Move();
+        void Run();
         IEnumerator Attack();
         IEnumerator Die();
         IEnumerator Check();
