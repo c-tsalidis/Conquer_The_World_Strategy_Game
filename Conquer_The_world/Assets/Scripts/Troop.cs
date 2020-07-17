@@ -94,7 +94,6 @@ public class Troop : MonoBehaviour, ITroop {
 
     private void Update() {
         if (_health <= 0) {
-            IsAlive = false;
             StartCoroutine(Die());
         }
 
@@ -169,6 +168,7 @@ public class Troop : MonoBehaviour, ITroop {
 
     public void Run() {
         _pathFinder.SetDestination(moveTo);
+        _isRunning = true;
     }
 
     public IEnumerator Attack() {
@@ -186,7 +186,7 @@ public class Troop : MonoBehaviour, ITroop {
         // wait until attack animation is finished
         yield return new WaitForSeconds(3.0f);
         // the enemy takes damage
-        if (target != null && target.GetComponent<Troop>().IsAlive && this.IsAlive) target.GetComponent<Troop>().TakeDamage(_damage);
+        if (target != null && target.GetComponent<Troop>().IsAlive && this.IsAlive) target.GetComponent<Troop>(). TakeDamage(_damage, this);
         // _animator.SetBool("isShooting", false);
         // _canAttack = true;
     }
@@ -195,6 +195,8 @@ public class Troop : MonoBehaviour, ITroop {
         _pathFinder.speed = 0;
         _animator.SetBool("isDying", true);
         if (Init.PlayerData.selectedTroops.Contains(this)) Init.PlayerData.selectedTroops.Remove(this);
+        target = null;
+        IsAlive = false;
         targetedBy.Clear();
         Init.PlayerData.troops.Remove(gameObject);
         yield return new WaitForSeconds(20.0f);
@@ -209,7 +211,6 @@ public class Troop : MonoBehaviour, ITroop {
                 // if (_previousPos != moveTo) {
                 // if (Vector3.Distance(Vector3.right * 2 + moveTo, moveTo) > 1) {
                 Run();
-                _isRunning = true;
             }
             else {
                 // _pathFinder.isStopped = true;
@@ -244,6 +245,7 @@ public class Troop : MonoBehaviour, ITroop {
 
     private void CheckForEnemiesNearby() {
         // maybe replace the hitColliders with an OnTriggerEnter(Collider other) event??
+        if(target != null) return;
 
         // Use the OverlapBox to detect if there are any other colliders within this box area.
         // Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject.
@@ -259,7 +261,8 @@ public class Troop : MonoBehaviour, ITroop {
         }
     }
 
-    public void TakeDamage(int damage) {
+    public void TakeDamage(int damage, Troop damager) {
+        Debug.Log(damager.transform.name +  " injured " + transform.name + " by " + damage);
         _health -= damage;
     }
 

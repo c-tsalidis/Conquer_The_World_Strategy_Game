@@ -7,6 +7,6 @@ namespace Interfaces {
         IEnumerator Attack();
         IEnumerator Die();
         IEnumerator Check();
-        void TakeDamage(int damage);
+        void TakeDamage(int damage, Troop damager);
     }
 }

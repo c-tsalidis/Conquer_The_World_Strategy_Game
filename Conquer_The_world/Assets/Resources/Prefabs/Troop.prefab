@@ -48,6 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   troopType: 0
+  _damage: 1
+  _health: 5
+  _speed: 2
+  _minEnemyDistToNotice: 2
   isSelected: 0
   isControlled: 1
   targetTag: 
@@ -56,9 +60,9 @@ MonoBehaviour:
   _isAttacking: 0
   _isRunning: 0
   minAttackRange: 2
-  archerVisuals: {fileID: 1214642450588486161, guid: 974c70b8f4ab145e1bdaacb5c24c221b,
+  archerVisuals: {fileID: 5347404344305324043, guid: 1d44e7aece4ef4e698abf2af2c240a9e,
     type: 3}
-  swordsmanVisuals: {fileID: 1214642450588486161, guid: 974c70b8f4ab145e1bdaacb5c24c221b,
+  swordsmanVisuals: {fileID: 5347404344305324043, guid: 1d44e7aece4ef4e698abf2af2c240a9e,
     type: 3}
   targetedBy: []
 --- !u!136 &2013691499846698623
