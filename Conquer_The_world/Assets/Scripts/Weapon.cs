@@ -20,6 +20,9 @@ public class Weapon : MonoBehaviour {
 
     private Rigidbody _rb;
 
+    private Vector3 prevPosition;
+    private Quaternion prevRotation;
+
     private void Start() {
         _rb = GetComponent<Rigidbody>();
     }
@@ -28,8 +31,8 @@ public class Weapon : MonoBehaviour {
     private void OnCollisionEnter(Collision other) {
         // Debug.Log(gameObject.name +  " collided with " + other.gameObject.name);
         if (other.gameObject.CompareTag(Init.Tags.Troop)) {
-            if (Troop.troopPlayer == Init.localPlayer) {
-                var troop = other.gameObject.GetComponent<Troop>();
+            var troop = other.gameObject.GetComponent<Troop>();
+            if (Troop.troopPlayer != troop.troopPlayer) {
                 troop.TakeDamage(Troop._damage, troop);
                 CollideArrow();
             }
@@ -39,19 +42,28 @@ public class Weapon : MonoBehaviour {
         }
     }
 
-    private void CollideArrow() {
-        _rb.velocity = Vector3.zero;
-        _rb.useGravity = false;
-        _rb.angularVelocity = Vector3.zero;
-        if(weaponType == WeaponType.Arrow) StartCoroutine(Pool(2.0f));
+    public void ShootArrow() {
+        prevPosition = transform.position;
+        prevRotation = transform.rotation;
+        var _rb = GetComponent<Rigidbody>();
+        var thrust = 10.0f;
+        transform.LookAt(Troop.target.transform);
+        _rb.AddForce(transform.forward * thrust);
     }
 
-    /// <summary>
-    /// Once the launched object has reached its place, pool it
-    /// </summary>
-    /// <returns></returns>
-    public IEnumerator Pool(float seconds) {
-        yield return new WaitForSeconds(seconds);
-        gameObject.SetActive(false);
+    private void CollideArrow() {
+        // _rb.velocity = Vector3.zero;
+        // _rb.angularVelocity = Vector3.zero;
+        // _rb.isKinematic = true;
+        // _rb.detectCollisions = false;
+        // Reset();
+    }
+    
+    public void Reset() {
+        _rb.velocity = Vector3.zero;
+        _rb.angularVelocity = Vector3.zero;
+        // _rb.isKinematic = false;
+        transform.position = prevPosition;
+        transform.rotation = prevRotation;
     }
 }

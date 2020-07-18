@@ -112,14 +112,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5122230192623575382}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f39b61950fe4e5ba19ca96f759a9555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pooledObjects: []
   objectToPool: {fileID: 0}
-  amountToPool: 0
+  amountToPool: 100
 --- !u!1 &7199165126047367220
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,10 +185,11 @@ MonoBehaviour:
   minAttackRange: 2
   archerVisuals: {fileID: 5347404344305324043, guid: 1d44e7aece4ef4e698abf2af2c240a9e,
     type: 3}
-  swordsmanVisuals: {fileID: 5347404344305324043, guid: 1d44e7aece4ef4e698abf2af2c240a9e,
+  swordsmanVisuals: {fileID: 8201056568532096229, guid: 42bb0633b7a9d456db23024a87d63083,
     type: 3}
   targetedBy: []
-  arrow: {fileID: 7170292681773038215, guid: 76d40751fe8694c3a8636dca3cca2113, type: 3}
+  arrowPrefab: {fileID: 7170292681773038215, guid: 76d40751fe8694c3a8636dca3cca2113,
+    type: 3}
   arrowSpawner: {fileID: 5122230192623575382}
 --- !u!65 &4655946747352183915
 BoxCollider:
@@ -198,7 +199,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7199165126047367220}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.5664838, y: 1.8620625, z: 0.5566312}

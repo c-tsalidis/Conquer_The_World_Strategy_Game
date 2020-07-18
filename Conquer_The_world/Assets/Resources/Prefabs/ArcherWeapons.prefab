@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1663d86cc86488cacd19c4005a70ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponType: 0
 --- !u!1001 &3402757078174289416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19,11 +20,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6288013245226052335, guid: 19ec22dd1705b469882c22ccc424086a,
-        type: 3}
-      propertyPath: m_Name
-      value: ArcherWeapons
-      objectReference: {fileID: 0}
     - target: {fileID: 995813902687655082, guid: 19ec22dd1705b469882c22ccc424086a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,6 +89,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780384791688776712, guid: 19ec22dd1705b469882c22ccc424086a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288013245226052335, guid: 19ec22dd1705b469882c22ccc424086a,
+        type: 3}
+      propertyPath: m_Name
+      value: ArcherWeapons
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19ec22dd1705b469882c22ccc424086a, type: 3}

@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Troop : MonoBehaviour, ITroop {
+public class Troop : MonoBehaviour {
     private NavMeshAgent _pathFinder;
 
     public enum TroopType {
@@ -50,15 +50,18 @@ public class Troop : MonoBehaviour, ITroop {
     [SerializeField] private GameObject archerVisuals;
     [SerializeField] private GameObject swordsmanVisuals;
 
-    private Animator _animator;
+    public Animator Animator { get; private set; }
     private float _attackAnimationTimeLength;
 
     public List<Troop> targetedBy = new List<Troop>();
 
-    [SerializeField] private GameObject arrow;
+    [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private GameObject arrowSpawner;
+    public GameObject _arrow { get; set; }
 
-    private ObjectPooler _objectPooler;
+    // private ObjectPooler _objectPooler;
+
+    public float previousTime { get; set; }
 
 
     public Troop() {
@@ -84,6 +87,7 @@ public class Troop : MonoBehaviour, ITroop {
             }
 
             visuals = Instantiate(archerVisuals, visuals.transform.position + Vector3.down, visuals.transform.rotation);
+            
         }
         else if (troopType == TroopType.Swordsman) {
             if (swordsmanVisuals == null) {
@@ -95,11 +99,13 @@ public class Troop : MonoBehaviour, ITroop {
         }
 
         visuals.transform.SetParent(bodyVisuals);
-        _animator = visuals.GetComponent<Animator>();
+        Animator = visuals.GetComponent<Animator>();
 
+        /*
         _objectPooler = arrowSpawner.GetComponent<ObjectPooler>();
         _objectPooler.amountToPool = 15;
-        _objectPooler.objectToPool = arrow;
+        _objectPooler.objectToPool = arrowPrefab;
+        */
     }
 
     // TODO --> If enemy in range, attack. Else, run
@@ -107,32 +113,36 @@ public class Troop : MonoBehaviour, ITroop {
     private void Update() {
         if (_health <= 0) {
             StartCoroutine(Die());
+            return;
         }
-
+        
         if (_isAttacking) {
             _isRunning = false;
             _pathFinder.speed = 0;
-            _animator.SetBool("isRunning", false);
-            _animator.SetBool("isShooting", true);
+            transform.LookAt(target);
+            Animator.SetBool("isRunning", false);
+            Animator.SetBool("isShooting", true);
         }
         else {
-            _animator.SetBool("isShooting", false);
+            Animator.SetBool("isShooting", false);
             if (_isRunning) {
                 _pathFinder.speed = _speed;
-                _animator.SetBool("isRunning", true);
+                Animator.SetBool("isRunning", true);
             }
             else {
-                _animator.SetBool("isRunning", false);
+                Animator.SetBool("isRunning", false);
             }
         }
 
-        StartCoroutine(Check());
+        if (Time.time - previousTime > 0.05f) {
+            if (isSelected && CalculateDistance(moveTo) >= minAttackRange) Run();
+        }
     }
 
     public void PopulateInstance(Player player, int level) {
         // set the player of this troop
         troopPlayer = player;
-        
+
         // set the gameobject's name to the troop type
         gameObject.name = troopType + " | " + gameObject.tag;
         // set the target tag
@@ -170,6 +180,9 @@ public class Troop : MonoBehaviour, ITroop {
             if (Init.localPlayer == troopPlayer) _weapon.GetComponent<Renderer>().material.color = Color.blue;
             else _weapon.GetComponent<Renderer>().material.color = Color.red;
         }
+
+        _arrow = Instantiate(arrowPrefab, arrowSpawner.transform) as GameObject;
+        _arrow.GetComponent<Weapon>().Troop = this;
     }
 
     public void Run() {
@@ -177,92 +190,22 @@ public class Troop : MonoBehaviour, ITroop {
         _isRunning = true;
     }
 
-    public IEnumerator Attack() {
-        // the wait for seconds should be higher than the attack animation --> like around twice or so
-        // Debug.Log(gameObject.name + " attacking " + _target.name);
-        // if (target == null) yield return null;
-        // _weaponAnimation.SetBool("IsAttacking", _canAttack);
-
-        // play attack animation
-        // _animator.SetBool("isRunning", false);
-        // _animator.SetBool("isShooting", true);
-        _canAttack = false;
+    public void Attack() {
+        if (target == null || !_targetIsSet) return;
         _isAttacking = true;
-        _animator.SetBool("isShooting", true);
-        // wait until attack animation is finished
-        yield return new WaitForSeconds(2.0f);
-
-        if (!targetIsVisible) yield break;
-
-        if (troopType == TroopType.Archer) {
-            var arrow = _objectPooler.GetPooledObject();
-            if (arrow != null) {
-                arrow.SetActive(true);
-                var weapon = arrow.GetComponent<Weapon>();
-                weapon.Troop = this;
-                var rb = arrow.GetComponent<Rigidbody>();
-                var thrust = 100.0f;
-                arrow.transform.LookAt(target.transform);
-                rb.AddForce(arrowSpawner.transform.forward * thrust);
-            }
-        }
-
-        yield return new WaitForSeconds(1.0f);
-        // the enemy takes damage
-        // if (target != null && target.GetComponent<Troop>().IsAlive && this.IsAlive) target.GetComponent<Troop>(). TakeDamage(_damage, this);
-        // _animator.SetBool("isShooting", false);
-        _canAttack = true;
+        if(troopType == TroopType.Archer) _arrow.GetComponent<Weapon>().Reset();
     }
 
     public IEnumerator Die() {
         _pathFinder.speed = 0;
-        _animator.SetBool("isDying", true);
+        Animator.SetBool("isDying", true);
         if (Init.localPlayer.selectedTroops.Contains(this)) Init.localPlayer.selectedTroops.Remove(this);
-        target = null;
+        _targetIsSet = false;
         IsAlive = false;
         targetedBy.Clear();
         if (Init.localPlayer.troops.Contains(gameObject)) Init.localPlayer.troops.Remove(gameObject);
         yield return new WaitForSeconds(20.0f);
         Destroy(gameObject);
-    }
-
-    public IEnumerator Check() {
-        if (gameObject == null) yield break;
-        yield return new WaitForSeconds(0.05f);
-        if (isSelected && !_isAttacking) {
-            if (CalculateDistance(moveTo) >= minAttackRange) {
-                // if (_previousPos != moveTo) {
-                // if (Vector3.Distance(Vector3.right * 2 + moveTo, moveTo) > 1) {
-                Run();
-            }
-            else {
-                // _pathFinder.isStopped = true;
-                _isRunning = false;
-            }
-        }
-
-        if (!_targetIsSet) {
-            // CheckForEnemiesNearby();
-            _isAttacking = false;
-        }
-        else {
-            if (target != null) {
-                if (target.GetComponent<Troop>().IsAlive) {
-                    transform.LookAt(target);
-                    _isAttacking = true;
-                    if (_canAttack) {
-                        StartCoroutine(Attack());
-                    }
-                }
-                else {
-                    target = null;
-                    _targetIsSet = false;
-                }
-            }
-        }
-
-        // check if there are any enemies in range
-        // StartCoroutine(CheckRange());
     }
 
 
@@ -278,9 +221,8 @@ public class Troop : MonoBehaviour, ITroop {
         // Debug.Log(gameObject.name + " is nearby " + c.name);
         // }
         if (hitColliders.Length > 0 && hitColliders[0].transform.GetComponent<Troop>().IsAlive) {
-            if (hitColliders[0].transform.GetComponent<Troop>().troopPlayer == Init.localPlayer) {
-                
-            }
+            if (hitColliders[0].transform.GetComponent<Troop>().troopPlayer == Init.localPlayer) { }
+
             _targetIsSet = true;
             target = hitColliders[0].transform;
             target.GetComponent<Troop>().targetedBy.Add(this);
@@ -303,8 +245,22 @@ public class Troop : MonoBehaviour, ITroop {
         return (float) Math.Sqrt(distanceSquared);
     }
 
-    public bool isEnemy(Troop troop) {
+    public bool IsEnemy(Troop troop) {
         if (this.troopPlayer == troop.troopPlayer) return false;
         else return true;
+    }
+
+    public void ShootArrow() {
+        // var arrow = _objectPooler.GetPooledObject();
+        if (_arrow != null && target != null) {
+            // _arrow.SetActive(true);
+            // Debug.Log("Shooting arrow");
+            var weapon = _arrow.GetComponent<Weapon>();
+            weapon.Troop = this;
+            var _rb = _arrow.GetComponent<Rigidbody>();
+            var thrust = 10.0f;
+            _arrow.transform.LookAt(target.transform);
+            _rb.AddForce(arrowSpawner.transform.forward * thrust);
+        }
     }
 }

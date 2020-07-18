@@ -22,10 +22,12 @@ public class EnemyDetector : MonoBehaviour {
         if (other.gameObject.CompareTag(Init.Tags.Troop)) {
             var t = other.gameObject.GetComponent<Troop>();
             if(!t.IsAlive) return;
-            if (_troop.isEnemy(t)) {
+            if (_troop.IsEnemy(t)) {
                 _troop._targetIsSet = true;
                 _troop.target = t.transform;
                 t.GetComponent<Troop>().targetedBy.Add(_troop);
+                // _troop.Attack();
+                t._isAttacking = true;
             }
         }
     }
