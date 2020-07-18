@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UnitSelectionManager : MonoBehaviour {
-    private Vector3 _moveTo; // position to where the selected units are supposed to move to
+    private GameObject _moveTo; // position to where the selected units are supposed to move to
     private bool _isDragging; // is the user dragging their mouse accross the screen to select units?
 
     private Vector3 _mouseStartScreenPosition; // the start position of the mouse when the user holds down the left mouse button
@@ -21,6 +21,7 @@ public class UnitSelectionManager : MonoBehaviour {
             _selectionBoxImgRectTransform = Init.Instance.selectionBoxImg.GetComponent<RectTransform>();
             Init.Instance.selectionBoxImg.gameObject.SetActive(false);
         }
+        _moveTo = new GameObject("Cursor Move to Position");
     }
 
     private void Update() {
@@ -61,13 +62,13 @@ public class UnitSelectionManager : MonoBehaviour {
                 
                 if (objectHit.gameObject.layer == LayerMask.NameToLayer(Init.Tags.Ground)) {
                     // get the point where the ray hits the ground plane
-                    _moveTo = hit.point;
+                    _moveTo.transform.position = hit.point;
                     // Debug.Log("Map hit - Set pos to " + _moveTo);
                     // go through all the selected units and move them
                     foreach (var troop in Init.localPlayer.troops) {
                         Troop t = troop.GetComponent<Troop>();
                         if (t.isSelected) {
-                            t.moveTo = _moveTo;
+                            t.moveTo = _moveTo.transform;
                         }
                     }
                 }

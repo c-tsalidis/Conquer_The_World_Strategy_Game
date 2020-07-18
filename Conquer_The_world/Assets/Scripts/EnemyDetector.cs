@@ -25,9 +25,8 @@ public class EnemyDetector : MonoBehaviour {
             if (_troop.IsEnemy(t)) {
                 _troop._targetIsSet = true;
                 _troop.target = t.transform;
+                _troop.moveTo = t.transform;
                 t.GetComponent<Troop>().targetedBy.Add(_troop);
-                // _troop.Attack();
-                t._isAttacking = true;
             }
         }
     }

@@ -185,7 +185,7 @@ MonoBehaviour:
   minAttackRange: 2
   archerVisuals: {fileID: 5347404344305324043, guid: 1d44e7aece4ef4e698abf2af2c240a9e,
     type: 3}
-  swordsmanVisuals: {fileID: 8201056568532096229, guid: 42bb0633b7a9d456db23024a87d63083,
+  swordsmanVisuals: {fileID: 2742908061074144312, guid: 98f8dbbe8db094b44b4b5a5441c4209d,
     type: 3}
   targetedBy: []
   arrowPrefab: {fileID: 7170292681773038215, guid: 76d40751fe8694c3a8636dca3cca2113,

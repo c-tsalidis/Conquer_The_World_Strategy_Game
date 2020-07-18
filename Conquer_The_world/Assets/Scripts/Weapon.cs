@@ -47,7 +47,7 @@ public class Weapon : MonoBehaviour {
         prevRotation = transform.rotation;
         var _rb = GetComponent<Rigidbody>();
         var thrust = 10.0f;
-        transform.LookAt(Troop.target.transform);
+        // transform.LookAt(Troop.target.transform);
         _rb.AddForce(transform.forward * thrust);
     }
 
