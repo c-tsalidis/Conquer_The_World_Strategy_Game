@@ -145,7 +145,7 @@ public class Troop : MonoBehaviour {
             case TroopType.Swordsman: {
                 InstantiateWeapon("Prefabs/SwordsManWeapons");
                 minAttackRange = 1.0f;
-                _minEnemyDistToNotice = 10.0f;
+                _minEnemyDistToNotice = 8.0f;
                 _speed = 2.0f;
                 _health = 10;
                 break;
@@ -199,9 +199,13 @@ public class Troop : MonoBehaviour {
         if (Init.localPlayer.selectedTroops.Contains(this)) Init.localPlayer.selectedTroops.Remove(this);
         _targetIsSet = false;
         IsAlive = false;
+        // tell the enemies that are targeting this troop that it's dead, and update its moveTo pos to their current moveTo pos
         foreach (var t in targetedBy) {
-            t.target = null;
-            t._targetIsSet = false;
+            if (t != null) {
+                t.target = null;
+                t._targetIsSet = false;
+                t.moveTo = null;
+            }
         }
         targetedBy.Clear();
         if (Init.localPlayer.troops.Contains(gameObject)) Init.localPlayer.troops.Remove(gameObject);
@@ -210,7 +214,7 @@ public class Troop : MonoBehaviour {
     }
 
     public void TakeDamage(int damage, Troop damager) {
-        Debug.Log(damager.transform.name + " injured " + transform.name + " by " + damage);
+        // Debug.Log(damager.transform.name + " injured " + transform.name + " by " + damage);
         _health -= damage;
     }
 

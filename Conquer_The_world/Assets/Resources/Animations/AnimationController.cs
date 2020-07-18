@@ -20,7 +20,7 @@ public class AnimationController : MonoBehaviour {
         _troop.Animator.SetBool("isAttacking", false);
         _troop._isAttacking = false;
         if(_troop.target != null) _troop.target.gameObject.GetComponent<Troop>().TakeDamage(_troop._damage, _troop); // make damage to the target
-        _troop.Attack();
+        // _troop.Attack();
     }
 
     public void PrintEvent(string s) {
