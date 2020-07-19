@@ -43,10 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff521e080634479b3c0616acdfc6b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPlayers: 0
-  playerPrefab: {fileID: 0}
+  numPlayers: 2
+  playerPrefab: {fileID: 4303793945899308736, guid: c589763438713474bb8a43a9e3b8fd15,
+    type: 3}
   troopMaterials:
   - {fileID: 2100000, guid: 421c28fd93d4d4ef4acd5483f9f75c96, type: 2}
   - {fileID: 2100000, guid: 0cbd24adf3a8c49fa94dab45328c64cf, type: 2}
   selectionBoxImg: {fileID: 0}
   canvas: {fileID: 0}
+  fpsText: {fileID: 0}

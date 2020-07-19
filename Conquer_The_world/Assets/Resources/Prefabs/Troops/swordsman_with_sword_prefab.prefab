@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 7601654809468972213}
   - component: {fileID: 8375535589342700592}
   m_Layer: 0
-  m_Name: swordsman_with_sword_reduced
+  m_Name: swordsman_with_sword_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

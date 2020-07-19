@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using GameStrings;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -33,6 +34,14 @@ public class Init : MonoBehaviour {
     // selection box image
     public RawImage selectionBoxImg;
     public Canvas canvas;
+
+    // for the fps (frames per second)
+    public float updateInterval = 0.5F;
+
+    private float accum = 0; // FPS accumulated over the interval
+    private int frames = 0; // Frames drawn over the interval
+    private float timeleft; // Left time for current interval
+    [SerializeField] private TextMeshProUGUI fpsText;
 
 
     private void Awake() {
@@ -129,5 +138,23 @@ public class Init : MonoBehaviour {
 
     private void Update() {
         if (MainCamera != null) _cameraController.CheckInput();
+        CalculateFPS();
+    }
+
+    private void CalculateFPS() {
+        timeleft -= Time.deltaTime;
+        accum += Time.timeScale / Time.deltaTime;
+        frames++;
+
+        // Interval ended - update GUI text and start new interval
+        if (timeleft <= 0.0) {
+            // display two fractional digits (f2 format)
+            float fps = accum / frames;
+            string format = System.String.Format("{0:F2} FPS", fps);
+            fpsText.text = format;
+            timeleft = updateInterval;
+            accum = 0.0F;
+            frames = 0;
+        }
     }
 }
