@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4380562535923756}
   - component: {fileID: 33777347464969880}
   - component: {fileID: 23271797918367150}
+  - component: {fileID: -7120533911123058159}
   m_Layer: 0
   m_Name: rpgpp_lt_bucket_01
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &-7120533911123058159
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487814745907178}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.28100002, y: 0.36, z: 0.312}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002, y: 0.35700002, z: 0.010000001}
+  m_TimeToStationary: 0.5

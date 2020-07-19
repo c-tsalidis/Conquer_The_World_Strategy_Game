@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4517740199119114}
   - component: {fileID: 33374399292666118}
   - component: {fileID: 23769478158867138}
+  - component: {fileID: -7357218603550289087}
   m_Layer: 0
   m_Name: rpgpp_lt_rock_03
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &-7357218603550289087
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553163231892768}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.511, y: 0.81200004, z: 1.3690001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.034, y: -0.014, z: -0.11800001}
+  m_TimeToStationary: 0.5

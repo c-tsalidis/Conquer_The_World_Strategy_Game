@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4019303215891802}
   - component: {fileID: 33579147424476364}
   - component: {fileID: 23351257873358812}
+  - component: {fileID: 184820496592937319}
   m_Layer: 0
   m_Name: rpgpp_lt_bush_02
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &184820496592937319
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235107498267470}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.6170001, y: 1.932, z: 1.1320001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.45400003, y: 1.9290001, z: 0.086}
+  m_TimeToStationary: 0.5

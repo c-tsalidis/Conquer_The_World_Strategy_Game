@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4565743505842534}
   - component: {fileID: 33672154753500630}
   - component: {fileID: 23431043500023986}
+  - component: {fileID: 7269166122826329985}
   m_Layer: 0
   m_Name: rpgpp_lt_hanger_clothes_01
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &7269166122826329985
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574705480282506}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.838, y: 1.4230001, z: 0.87600005}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.047000002, y: 1.4230001, z: -0.19900002}
+  m_TimeToStationary: 0.5

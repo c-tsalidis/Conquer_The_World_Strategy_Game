@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4201503581178414}
   - component: {fileID: 33946187946896712}
   - component: {fileID: 23468884316666696}
+  - component: {fileID: -990725249909322143}
   m_Layer: 0
   m_Name: rpgpp_lt_log_wood_01
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &-990725249909322143
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974105250760466}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.1470001, y: 0.591, z: 0.874}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.052, y: 0.078, z: 0.020000001}
+  m_TimeToStationary: 0.5

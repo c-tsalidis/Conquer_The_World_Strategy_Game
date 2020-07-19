@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4103606975893948}
   - component: {fileID: 33470661693730704}
   - component: {fileID: 23635224195777006}
+  - component: {fileID: 7384132792958524598}
   m_Layer: 0
   m_Name: rpgpp_lt_package_01
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &7384132792958524598
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361181076786324}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.55300003, y: 0.29900002, z: 0.393}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002, y: 0.002, z: -0.001}
+  m_TimeToStationary: 0.5

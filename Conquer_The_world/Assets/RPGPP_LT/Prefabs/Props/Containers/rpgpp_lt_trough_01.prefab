@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4966303650379956}
   - component: {fileID: 33535767199113812}
   - component: {fileID: 23408824984100580}
+  - component: {fileID: 5852028698912838215}
   m_Layer: 0
   m_Name: rpgpp_lt_trough_01
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &5852028698912838215
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833936599012662}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.029, y: 0.23900001, z: 0.26500002}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.033, y: 0.23500001, z: 0.028}
+  m_TimeToStationary: 0.5

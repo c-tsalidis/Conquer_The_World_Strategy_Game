@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4682952893640444}
   - component: {fileID: 33062217724292056}
   - component: {fileID: 23076043690070096}
+  - component: {fileID: 1792830208545785305}
   m_Layer: 0
   m_Name: rpgpp_lt_sack_01
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!208 &1792830208545785305
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266262423161834}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.407, y: 0.257, z: 0.82500005}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.062000003, y: 0.031000001, z: 0.82500005}
+  m_TimeToStationary: 0.5
