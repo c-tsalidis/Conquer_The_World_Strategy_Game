@@ -37,7 +37,8 @@ public class UnitSelectionManager : MonoBehaviour {
             // if the user clicks somewhere on the screen
             RaycastHit hit;
             Ray ray = Init.MainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit)) {
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask(Init.Tags.Troop, Init.Tags.Ground))) {
+                // Debug.Log("hit " + LayerMask.LayerToName(hit.transform.gameObject.layer));
                 // maybe get the rays that hit only a specific layer??
                 Transform objectHit = hit.transform;
                 if (objectHit.CompareTag(Init.Tags.Troop)) {

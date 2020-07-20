@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.PlayerLoop;
+using UnityEngine.Windows.Speech;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Troop : MonoBehaviour {
@@ -25,7 +27,7 @@ public class Troop : MonoBehaviour {
     public bool isControlled;
     public string targetTag;
 
-    private GameObject _weapon;
+    private GameObject _identifier;
 
     // position to go to
     public Transform moveTo;
@@ -54,7 +56,7 @@ public class Troop : MonoBehaviour {
     public List<Troop> targetedBy = new List<Troop>();
 
     [SerializeField] private GameObject arrowPrefab;
-    [SerializeField] private GameObject arrowSpawner;
+    public GameObject arrowSpawner;
     public GameObject _arrow { get; set; }
 
     // private ObjectPooler _objectPooler;
@@ -106,9 +108,7 @@ public class Troop : MonoBehaviour {
         _objectPooler.objectToPool = arrowPrefab;
         */
     }
-
-    // TODO --> If enemy in range, attack. Else, run
-
+    
     private void Update() {
         if (_health <= 0) {
             StartCoroutine(Die());
@@ -116,12 +116,31 @@ public class Troop : MonoBehaviour {
         }
 
         if (Time.time - previousTime > 0.05f) {
-            // on target detected, run towards
-            if (moveTo != null) {
-                if (CalculateDistance(moveTo.position) >= minAttackRange && !_isAttacking) Run();
-                else if (_targetIsSet && !_isAttacking) Attack();
-                previousTime = Time.time;
+            
+        }
+    }
+
+    private void FixedUpdate() {
+        if (_targetIsSet) {
+            if(!_isAttacking) transform.LookAt(target);
+            // check if the target is visible
+            RaycastHit hit;
+            // Does the ray intersect the troop layer
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity,
+                LayerMask.GetMask(Init.Tags.Troop))) {
+                // the target is visible
+                targetIsVisible = true;
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             }
+            else {
+                targetIsVisible = false;
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+            }
+        }
+        if (moveTo != null) {
+            if (CalculateDistance(moveTo.position) >= minAttackRange && !_isAttacking) Run();
+            else if (!_isAttacking && targetIsVisible) Attack();
+            previousTime = Time.time;
         }
     }
 
@@ -151,7 +170,7 @@ public class Troop : MonoBehaviour {
             case TroopType.Archer: {
                 InstantiateWeapon("Prefabs/ArcherWeapons");
                 minAttackRange = 8.0f;
-                _minEnemyDistToNotice = 10.0f;
+                _minEnemyDistToNotice = 16.0f;
                 _speed = 3.5f;
                 _health = 5;
                 break;
@@ -159,12 +178,12 @@ public class Troop : MonoBehaviour {
         }
     }
 
-    private void InstantiateWeapon(string weaponPathName) {
-        _weapon = Instantiate(Resources.Load(weaponPathName), transform) as GameObject;
-        if (_weapon != null) {
-            _weapon.transform.SetParent(gameObject.transform);
-            if (Init.localPlayer == troopPlayer) _weapon.GetComponent<Renderer>().material.color = Color.blue;
-            else _weapon.GetComponent<Renderer>().material.color = Color.red;
+    private void InstantiateWeapon(string identifierPathName) {
+        _identifier = Instantiate(Resources.Load(identifierPathName), transform) as GameObject;
+        if (_identifier != null) {
+            _identifier.transform.SetParent(gameObject.transform);
+            if (Init.localPlayer == troopPlayer) _identifier.GetComponent<Renderer>().material.color = Color.blue;
+            else _identifier.GetComponent<Renderer>().material.color = Color.red;
         }
 
         if (troopType == TroopType.Archer) {
@@ -183,16 +202,17 @@ public class Troop : MonoBehaviour {
 
     public void Attack() {
         if (target == null || !_targetIsSet) return;
-        transform.LookAt(target);
         _isAttacking = true;
         _pathFinder.speed = 0;
-        if (troopType == TroopType.Archer) _arrow.GetComponent<Weapon>().Reset();
+        transform.LookAt(target);
         Animator.SetBool("isRunning", false);
         Animator.SetBool("isAttacking", true);
     }
 
     public IEnumerator Die() {
-        _pathFinder.speed = 0;
+        // _pathFinder.speed = 0;
+        _pathFinder.isStopped = true;
+        _identifier.SetActive(false);
         Animator.SetBool("isDying", true);
         if (Init.localPlayer.selectedTroops.Contains(this)) Init.localPlayer.selectedTroops.Remove(this);
         _targetIsSet = false;
@@ -205,6 +225,7 @@ public class Troop : MonoBehaviour {
                 t.moveTo = null;
             }
         }
+
         targetedBy.Clear();
         if (Init.localPlayer.troops.Contains(gameObject)) Init.localPlayer.troops.Remove(gameObject);
         yield return new WaitForSeconds(20.0f);

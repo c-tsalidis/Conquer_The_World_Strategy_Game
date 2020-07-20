@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2039673501}
   - component: {fileID: 4926400874734479478}
   - component: {fileID: 7761629226704620945}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: EnemyDetectCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2145125787827735750}
   - component: {fileID: 5745600480939468558}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: WeaponSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
   isSelected: 0
   isControlled: 1
   targetTag: 
-  moveTo: {x: 0, y: 0, z: 0}
+  moveTo: {fileID: 0}
   _targetIsSet: 0
   target: {fileID: 0}
   _isAttacking: 0
@@ -202,8 +202,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5664838, y: 1.8620625, z: 0.5566312}
-  m_Center: {x: 0.000000029802322, y: -0.06896877, z: -0.034484208}
+  m_Size: {x: 0.42969972, y: 1.7824793, z: 0.5566312}
+  m_Center: {x: 0.000000029802322, y: -0.10876036, z: -0.034484208}
 --- !u!195 &6348404166182392799
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 7199165127595651475}
   - component: {fileID: 7199165127595651478}
   - component: {fileID: 7199165127595651477}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Body_Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,6 @@ public class AnimationController : MonoBehaviour {
     }
 
     public void ArrowShotEvent() {
-        // _troop.ShootArrow();
         _troop._arrow.GetComponent<Weapon>().ShootArrow();
     }
 

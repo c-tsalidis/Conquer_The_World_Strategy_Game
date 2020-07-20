@@ -28,35 +28,33 @@ public class Weapon : MonoBehaviour {
     }
 
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnTriggerEnter(Collider other) {
         // Debug.Log(gameObject.name +  " collided with " + other.gameObject.name);
         if (other.gameObject.CompareTag(Init.Tags.Troop)) {
             var troop = other.gameObject.GetComponent<Troop>();
             if (Troop.troopPlayer != troop.troopPlayer) {
-                troop.TakeDamage(Troop._damage, troop);
+                // troop.TakeDamage(Troop._damage, troop);
                 CollideArrow();
             }
         }
-        else if (other.gameObject.CompareTag(Init.Tags.Map)) {
+        else if (other.gameObject.layer == LayerMask.NameToLayer(Init.Tags.Map)) {
             CollideArrow();
         }
     }
 
     public void ShootArrow() {
-        prevPosition = transform.position;
-        prevRotation = transform.rotation;
+        Reset();
+        prevPosition = Troop.arrowSpawner.transform.position;
+        prevRotation = Troop.arrowSpawner.transform.rotation;
         var _rb = GetComponent<Rigidbody>();
         var thrust = 10.0f;
+        _rb.isKinematic = false;
         // transform.LookAt(Troop.target.transform);
         _rb.AddForce(transform.forward * thrust);
     }
 
     private void CollideArrow() {
-        // _rb.velocity = Vector3.zero;
-        // _rb.angularVelocity = Vector3.zero;
-        // _rb.isKinematic = true;
-        // _rb.detectCollisions = false;
-        // Reset();
+        _rb.isKinematic = true;
     }
     
     public void Reset() {
