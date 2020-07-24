@@ -9,9 +9,11 @@ public class Weapon : MonoBehaviour {
         Sword,
         Arrow
     };
+
     [SerializeField] private WeaponType weaponType;
 
     private LayerMask _layerMask;
+
     public Weapon(Troop troop) {
         Troop = troop;
     }
@@ -23,12 +25,33 @@ public class Weapon : MonoBehaviour {
     private Vector3 prevPosition;
     private Quaternion prevRotation;
 
+    public bool isShot = false;
+
     private void Start() {
         _rb = GetComponent<Rigidbody>();
     }
 
+    private void Update() {
+        if(Troop == null) return;
+        if (Troop.target != null && isShot) {
+            var target = Troop.target;
+            float speed = 25.0f;
+            // Move our position a step closer to the target.
+            float step = speed * Time.deltaTime; // calculate distance to move
+            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+            transform.LookAt(target);
+
+            // Check if the position of the cube and sphere are approximately equal.
+            if (Vector3.Distance(transform.position, target.position) < 0.001f) {
+                gameObject.SetActive(false);
+            }
+        }
+        else if(isShot) _rb.AddForce(transform.forward * 10.0f);
+    }
+
 
     private void OnTriggerEnter(Collider other) {
+        /*
         // Debug.Log(gameObject.name +  " collided with " + other.gameObject.name);
         if (other.gameObject.CompareTag(Init.Tags.Troop)) {
             var troop = other.gameObject.GetComponent<Troop>();
@@ -37,27 +60,31 @@ public class Weapon : MonoBehaviour {
                 CollideArrow();
             }
         }
-        else if (other.gameObject.layer == LayerMask.NameToLayer(Init.Tags.Map)) {
+        */
+        if (other.gameObject.layer == LayerMask.NameToLayer(Init.Tags.Map)) {
             CollideArrow();
         }
     }
 
     public void ShootArrow() {
+        isShot = true;
         Reset();
+        isShot = true;
         prevPosition = Troop.arrowSpawner.transform.position;
         prevRotation = Troop.arrowSpawner.transform.rotation;
         var _rb = GetComponent<Rigidbody>();
         var thrust = 10.0f;
         _rb.isKinematic = false;
         // transform.LookAt(Troop.target.transform);
-        _rb.AddForce(transform.forward * thrust);
+        // _rb.AddForce(transform.forward * thrust);
     }
 
     private void CollideArrow() {
         _rb.isKinematic = true;
     }
-    
+
     public void Reset() {
+        gameObject.SetActive(true);
         _rb.velocity = Vector3.zero;
         _rb.angularVelocity = Vector3.zero;
         // _rb.isKinematic = false;

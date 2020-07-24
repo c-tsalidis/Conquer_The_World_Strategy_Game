@@ -20,20 +20,88 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e702e6a9-20ad-4feb-af2a-02ae853c3b9d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_Height.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_Height.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_MetallicSmoothness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_MetallicSmoothness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Demo fire.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Demo fire.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Floor3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Floor3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/LightingData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/LightingData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Lightmap-0_comp_dir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Lightmap-0_comp_dir.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Readme.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/ReflectionProbe-0.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/ReflectionProbe-1.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/ReflectionProbe-1.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/FireSphere1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/FireSphere1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/FireSphere2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/FireSphere2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/Smoke26.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/Smoke26.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/SparkSphere.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/SparkSphere.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/Trail67.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/Trail67.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Explosion.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Explosion.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 0.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 0.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 3.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 3.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro blue.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro blue.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro green.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro green.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro orange.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro orange.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro red.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro red.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro yellow.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro yellow.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/RotatorPS1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/RotatorPS1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/RotatorPS2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/RotatorPS2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Shaders/FireSphere.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Shaders/FireSphere.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/FireSphere1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/FireSphere1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/FireSphere2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/FireSphere2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/Smoke26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/Smoke26.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/Trail67.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/Trail67.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/AnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/AnimationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/archer.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/archer.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/ArcherWeapons.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/ArcherWeapons.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Arrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Arrow.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Map.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Map.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/SwordsManWeapons.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/SwordsManWeapons.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Troop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Troop.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Troop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Troop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BattleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BattleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,10 +151,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/ITroop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyDetector.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Init.cs" />
-        <option value="$PROJECT_DIR$/Assets/Resources/Animations/AnimationController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Troop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Animations/AnimationController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" />
       </list>
     </option>
   </component>
@@ -117,10 +185,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="11591">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="11591" />
+      <option name="pid" />
       <method v="2" />
     </configuration>
   </component>
@@ -140,7 +208,9 @@
       <workItem from="1594906729437" duration="16000" />
       <workItem from="1594906753030" duration="43195000" />
       <workItem from="1595054389496" duration="8552000" />
-      <workItem from="1595249518162" duration="8298000" />
+      <workItem from="1595249518162" duration="8456000" />
+      <workItem from="1595526084608" duration="649000" />
+      <workItem from="1595579523782" duration="1436000" />
     </task>
     <servers />
   </component>
@@ -170,93 +240,93 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="468" height="464" key="DebuggerActiveHint/0.0.1680.1050@0.0.1680.1050" timestamp="1595258816570" />
-    <state width="1638" height="390" key="GridCell.Tab.0.bottom" timestamp="1595258263687">
+    <state width="1638" height="390" key="GridCell.Tab.0.bottom" timestamp="1595326526071">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1595258263687" />
+    <state width="1638" height="390" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526071" />
     <state width="1638" height="390" key="GridCell.Tab.0.bottom/0.23.1680.954@0.23.1680.954" timestamp="1595066622788" />
-    <state width="1638" height="390" key="GridCell.Tab.0.center" timestamp="1595258263685">
+    <state width="1638" height="390" key="GridCell.Tab.0.center" timestamp="1595326526070">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1595258263685" />
+    <state width="1638" height="390" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526070" />
     <state width="1638" height="390" key="GridCell.Tab.0.center/0.23.1680.954@0.23.1680.954" timestamp="1595066622787" />
-    <state width="1638" height="390" key="GridCell.Tab.0.left" timestamp="1595258263683">
+    <state width="1638" height="390" key="GridCell.Tab.0.left" timestamp="1595326526069">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1595258263683" />
+    <state width="1638" height="390" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526069" />
     <state width="1638" height="390" key="GridCell.Tab.0.left/0.23.1680.954@0.23.1680.954" timestamp="1595066622787" />
-    <state width="1638" height="390" key="GridCell.Tab.0.right" timestamp="1595258263686">
+    <state width="1638" height="390" key="GridCell.Tab.0.right" timestamp="1595326526070">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1595258263686" />
+    <state width="1638" height="390" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526070" />
     <state width="1638" height="390" key="GridCell.Tab.0.right/0.23.1680.954@0.23.1680.954" timestamp="1595066622788" />
-    <state width="1638" height="390" key="GridCell.Tab.1.bottom" timestamp="1595258293146">
-      <screen x="0" y="23" width="1680" height="955" />
+    <state width="1638" height="390" key="GridCell.Tab.1.bottom" timestamp="1595326526072">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693944" />
+    <state width="1638" height="390" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526072" />
     <state width="1638" height="390" key="GridCell.Tab.1.bottom/0.23.1680.954@0.23.1680.954" timestamp="1595066622790" />
     <state width="1638" height="390" key="GridCell.Tab.1.bottom/0.23.1680.955@0.23.1680.955" timestamp="1595258293146" />
     <state width="1638" height="390" key="GridCell.Tab.1.bottom/0.23.1680.957@0.23.1680.957" timestamp="1595031935717" />
-    <state width="1638" height="390" key="GridCell.Tab.1.center" timestamp="1595258293145">
-      <screen x="0" y="23" width="1680" height="955" />
+    <state width="1638" height="390" key="GridCell.Tab.1.center" timestamp="1595326526071">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693942" />
+    <state width="1638" height="390" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526071" />
     <state width="1638" height="390" key="GridCell.Tab.1.center/0.23.1680.954@0.23.1680.954" timestamp="1595066622790" />
     <state width="1638" height="390" key="GridCell.Tab.1.center/0.23.1680.955@0.23.1680.955" timestamp="1595258293145" />
     <state width="1638" height="390" key="GridCell.Tab.1.center/0.23.1680.957@0.23.1680.957" timestamp="1595031935716" />
-    <state width="1638" height="390" key="GridCell.Tab.1.left" timestamp="1595258293144">
-      <screen x="0" y="23" width="1680" height="955" />
+    <state width="1638" height="390" key="GridCell.Tab.1.left" timestamp="1595326526071">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693940" />
+    <state width="1638" height="390" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526071" />
     <state width="1638" height="390" key="GridCell.Tab.1.left/0.23.1680.954@0.23.1680.954" timestamp="1595066622789" />
     <state width="1638" height="390" key="GridCell.Tab.1.left/0.23.1680.955@0.23.1680.955" timestamp="1595258293144" />
     <state width="1638" height="390" key="GridCell.Tab.1.left/0.23.1680.957@0.23.1680.957" timestamp="1595031935715" />
-    <state width="1638" height="390" key="GridCell.Tab.1.right" timestamp="1595258293146">
-      <screen x="0" y="23" width="1680" height="955" />
+    <state width="1638" height="390" key="GridCell.Tab.1.right" timestamp="1595326526072">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693944" />
+    <state width="1638" height="390" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526072" />
     <state width="1638" height="390" key="GridCell.Tab.1.right/0.23.1680.954@0.23.1680.954" timestamp="1595066622790" />
     <state width="1638" height="390" key="GridCell.Tab.1.right/0.23.1680.955@0.23.1680.955" timestamp="1595258293146" />
     <state width="1638" height="390" key="GridCell.Tab.1.right/0.23.1680.957@0.23.1680.957" timestamp="1595031935716" />
-    <state width="1638" height="390" key="GridCell.Tab.2.bottom" timestamp="1595066622793">
-      <screen x="0" y="23" width="1680" height="954" />
+    <state width="1638" height="390" key="GridCell.Tab.2.bottom" timestamp="1595326526074">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.2.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693948" />
+    <state width="1638" height="390" key="GridCell.Tab.2.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526074" />
     <state width="1638" height="390" key="GridCell.Tab.2.bottom/0.23.1680.954@0.23.1680.954" timestamp="1595066622793" />
-    <state width="1638" height="390" key="GridCell.Tab.2.center" timestamp="1595066622792">
-      <screen x="0" y="23" width="1680" height="954" />
+    <state width="1638" height="390" key="GridCell.Tab.2.center" timestamp="1595326526073">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.2.center/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693946" />
+    <state width="1638" height="390" key="GridCell.Tab.2.center/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526073" />
     <state width="1638" height="390" key="GridCell.Tab.2.center/0.23.1680.954@0.23.1680.954" timestamp="1595066622792" />
-    <state width="1638" height="390" key="GridCell.Tab.2.left" timestamp="1595066622792">
-      <screen x="0" y="23" width="1680" height="954" />
+    <state width="1638" height="390" key="GridCell.Tab.2.left" timestamp="1595326526073">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.2.left/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693945" />
+    <state width="1638" height="390" key="GridCell.Tab.2.left/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526073" />
     <state width="1638" height="390" key="GridCell.Tab.2.left/0.23.1680.954@0.23.1680.954" timestamp="1595066622792" />
-    <state width="1638" height="390" key="GridCell.Tab.2.right" timestamp="1595066622793">
-      <screen x="0" y="23" width="1680" height="954" />
+    <state width="1638" height="390" key="GridCell.Tab.2.right" timestamp="1595326526073">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.2.right/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693946" />
+    <state width="1638" height="390" key="GridCell.Tab.2.right/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526073" />
     <state width="1638" height="390" key="GridCell.Tab.2.right/0.23.1680.954@0.23.1680.954" timestamp="1595066622793" />
-    <state width="1638" height="390" key="GridCell.Tab.3.bottom" timestamp="1595066622795">
-      <screen x="0" y="23" width="1680" height="954" />
+    <state width="1638" height="390" key="GridCell.Tab.3.bottom" timestamp="1595326526075">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.3.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693951" />
+    <state width="1638" height="390" key="GridCell.Tab.3.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526075" />
     <state width="1638" height="390" key="GridCell.Tab.3.bottom/0.23.1680.954@0.23.1680.954" timestamp="1595066622795" />
-    <state width="1638" height="390" key="GridCell.Tab.3.center" timestamp="1595066622794">
-      <screen x="0" y="23" width="1680" height="954" />
+    <state width="1638" height="390" key="GridCell.Tab.3.center" timestamp="1595326526074">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.3.center/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693950" />
+    <state width="1638" height="390" key="GridCell.Tab.3.center/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526074" />
     <state width="1638" height="390" key="GridCell.Tab.3.center/0.23.1680.954@0.23.1680.954" timestamp="1595066622794" />
-    <state width="1638" height="390" key="GridCell.Tab.3.left" timestamp="1595066622794">
-      <screen x="0" y="23" width="1680" height="954" />
+    <state width="1638" height="390" key="GridCell.Tab.3.left" timestamp="1595326526074">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.3.left/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693949" />
+    <state width="1638" height="390" key="GridCell.Tab.3.left/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526074" />
     <state width="1638" height="390" key="GridCell.Tab.3.left/0.23.1680.954@0.23.1680.954" timestamp="1595066622794" />
-    <state width="1638" height="390" key="GridCell.Tab.3.right" timestamp="1595066622795">
-      <screen x="0" y="23" width="1680" height="954" />
+    <state width="1638" height="390" key="GridCell.Tab.3.right" timestamp="1595326526075">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="390" key="GridCell.Tab.3.right/0.0.1680.1050@0.0.1680.1050" timestamp="1595064693950" />
+    <state width="1638" height="390" key="GridCell.Tab.3.right/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526075" />
     <state width="1638" height="390" key="GridCell.Tab.3.right/0.23.1680.954@0.23.1680.954" timestamp="1595066622795" />
     <state x="100" y="84" width="1480" height="933" key="VCS.FileHistoryDialog" timestamp="1595024971987">
       <screen x="0" y="23" width="1680" height="955" />
