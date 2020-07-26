@@ -86,14 +86,14 @@ public class Troop : MonoBehaviour {
                 Debug.LogError("Troop type archer is null");
             }
 
-            visuals = Instantiate(archerVisuals, visuals.transform.position + Vector3.down, visuals.transform.rotation);
+            visuals = Instantiate(archerVisuals, visuals.transform.position + Vector3.down * 1.1f, visuals.transform.rotation);
         }
         else if (troopType == TroopType.Swordsman) {
             if (swordsmanVisuals == null) {
                 Debug.LogError("Troop type swordsman is null");
             }
 
-            visuals = Instantiate(swordsmanVisuals, visuals.transform.position + Vector3.down,
+            visuals = Instantiate(swordsmanVisuals, visuals.transform.position + Vector3.down * 1.1f,
                 visuals.transform.rotation);
         }
 
@@ -102,7 +102,7 @@ public class Troop : MonoBehaviour {
 
         moveTo = transform;
         
-        if(isControlled) Init.Instance.ChangeControlledTroop(transform);
+        if(isControlled) Init.Instance.ChangeControlledTroop(transform, true);
 
         /*
         _objectPooler = arrowSpawner.GetComponent<ObjectPooler>();
@@ -230,10 +230,9 @@ public class Troop : MonoBehaviour {
 
         targetedBy.Clear();
         if (Init.localPlayer.troops.Contains(gameObject)) Init.localPlayer.troops.Remove(gameObject);
-        if(Init.localPlayer.troops.Count > 0) Init.Instance.ChangeControlledTroop(Init.localPlayer.troops[0].transform);
+        if(Init.localPlayer.troops.Count > 0) Init.Instance.ChangeControlledTroop(Init.localPlayer.troops[0].transform, true);
         else {
-            Init.Instance.ChangeControlledTroop(null);
-            
+            Init.Instance.ChangeControlledTroop(null, false);
         }
         yield return new WaitForSeconds(20.0f);
         Destroy(gameObject);

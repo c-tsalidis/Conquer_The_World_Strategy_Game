@@ -44,8 +44,9 @@ public class Init : MonoBehaviour {
     private float timeleft; // Left time for current interval
     [SerializeField] private TextMeshProUGUI fpsText;
 
-    [SerializeField] private CinemachineFreeLook cinemachineFreeLook;
-
+    public CinemachineFreeLook cinemachineFreeLook;
+    [SerializeField] private GameObject thirdPersonGameObject;
+    public int currentControlledTroop = 0;
 
     private void Awake() {
         // Create Init if it doesn't exist --> singleton
@@ -144,7 +145,7 @@ public class Init : MonoBehaviour {
     }
 
     private void Update() {
-        if (MainCamera != null) _cameraController.CheckInput();
+        // if (MainCamera != null) _cameraController.CheckInput();
         CalculateFPS();
     }
 
@@ -165,8 +166,14 @@ public class Init : MonoBehaviour {
         }
     }
 
-    public void ChangeControlledTroop(Transform troop) {
-        cinemachineFreeLook.Follow = troop;
-        cinemachineFreeLook.LookAt = troop;
+    public void ChangeControlledTroop(Transform t, bool isTroop) {
+        if (isTroop) {
+            cinemachineFreeLook.Follow = t;
+            cinemachineFreeLook.LookAt = t;
+        }
+        else {
+            cinemachineFreeLook.Follow = thirdPersonGameObject.transform;
+            cinemachineFreeLook.LookAt = thirdPersonGameObject.transform;
+        }
     }
 }

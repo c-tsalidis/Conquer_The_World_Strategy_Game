@@ -569,6 +569,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &769876958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 769876959}
+  - component: {fileID: 769876961}
+  - component: {fileID: 769876960}
+  m_Layer: 0
+  m_Name: Third Person GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &769876959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769876958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &769876960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769876958}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621d7af87e50f492fbf85696986150c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 963194228}
+  speed: 100
+  turnSmoothTime: 0.1
+--- !u!143 &769876961
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769876958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &883899447 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2982303248174089286, guid: 6ff13ab9376ff47d8a4f425488857517,
@@ -1852,7 +1917,7 @@ GameObject:
   - component: {fileID: 1928192426}
   - component: {fileID: 1928192428}
   m_Layer: 0
-  m_Name: Third Person Camera
+  m_Name: Cinemachine Third Person Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2057,6 +2122,11 @@ PrefabInstance:
       propertyPath: cinemachineFreeLook
       value: 
       objectReference: {fileID: 1928192426}
+    - target: {fileID: 7838359245502296233, guid: 95058d12a52af4ca4988a2b880d260c5,
+        type: 3}
+      propertyPath: thirdPersonGameObject
+      value: 
+      objectReference: {fileID: 769876958}
     - target: {fileID: 7838359245502296234, guid: 95058d12a52af4ca4988a2b880d260c5,
         type: 3}
       propertyPath: m_LocalPosition.x
