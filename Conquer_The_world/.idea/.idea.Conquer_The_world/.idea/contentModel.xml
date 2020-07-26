@@ -55,6 +55,7 @@
             <e p="SavedValues.cs" t="Include" />
           </e>
           <e p="SceneLoader.cs" t="Include" />
+          <e p="ThirdPersonMovement.cs" t="Include" />
           <e p="Troop.cs" t="Include" />
           <e p="UnitSelectionManager.cs" t="Include" />
           <e p="Weapon.cs" t="Include" />

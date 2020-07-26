@@ -20,88 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e702e6a9-20ad-4feb-af2a-02ae853c3b9d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_Height.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_Height.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_MetallicSmoothness.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_MetallicSmoothness.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Concrete slab_Normal.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Demo fire.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Demo fire.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Floor3.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Floor3.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/LightingData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/LightingData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Lightmap-0_comp_dir.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Lightmap-0_comp_dir.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Lightmap-0_comp_light.exr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Lightmap-0_comp_light.exr.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/Readme.txt.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/ReflectionProbe-0.exr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/ReflectionProbe-0.exr.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/ReflectionProbe-1.exr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Demo scene/ReflectionProbe-1.exr.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/FireSphere1.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/FireSphere1.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/FireSphere2.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/FireSphere2.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/Smoke26.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/Smoke26.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/SparkSphere.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/SparkSphere.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/Trail67.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Materials/Trail67.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Explosion.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Explosion.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 0.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 0.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 1.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 1.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 2.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 2.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 3.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire 3.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro blue.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro blue.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro green.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro green.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro orange.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro orange.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro red.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro red.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro yellow.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/Magic fire pro yellow.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/RotatorPS1.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/RotatorPS1.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/RotatorPS2.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Prefabs/RotatorPS2.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Shaders.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Shaders/FireSphere.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Shaders/FireSphere.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/FireSphere1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/FireSphere1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/FireSphere2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/FireSphere2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/Smoke26.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/Smoke26.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/Trail67.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Hovl Studio/Procedural fire/Textures/Trail67.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Textures/Minimap render texture.renderTexture" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Textures/Minimap render texture.renderTexture.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/BattleScene/OcclusionCullingData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/BattleScene/OcclusionCullingData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ThirdPersonMovement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ThirdPersonMovement.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/AnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/AnimationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Arrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Arrow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Init.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Init.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Map.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Map.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BattleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BattleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Init.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Init.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Troop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Troop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +51,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SavedValues/SavedValues.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ThirdPersonMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameStrings/Tags.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Animations/AnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameStrings/SceneNames.cs" root0="FORCE_HIGHLIGHTING" />
@@ -150,11 +84,12 @@
         <option value="$PROJECT_DIR$/Assets/Resources/Animations/AnimationContoller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/ITroop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyDetector.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Init.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Troop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/Animations/AnimationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ThirdPersonMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Init.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Troop.cs" />
       </list>
     </option>
   </component>
@@ -210,7 +145,9 @@
       <workItem from="1595054389496" duration="8552000" />
       <workItem from="1595249518162" duration="8456000" />
       <workItem from="1595526084608" duration="649000" />
-      <workItem from="1595579523782" duration="1436000" />
+      <workItem from="1595579523782" duration="1511000" />
+      <workItem from="1595762426085" duration="9000" />
+      <workItem from="1595762443202" duration="4024000" />
     </task>
     <servers />
   </component>

@@ -51,4 +51,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0cbd24adf3a8c49fa94dab45328c64cf, type: 2}
   selectionBoxImg: {fileID: 0}
   canvas: {fileID: 0}
+  updateInterval: 0.5
   fpsText: {fileID: 0}
+  cinemachineFreeLook: {fileID: 0}

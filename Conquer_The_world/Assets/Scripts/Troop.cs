@@ -101,6 +101,8 @@ public class Troop : MonoBehaviour {
         Animator = visuals.GetComponent<Animator>();
 
         moveTo = transform;
+        
+        if(isControlled) Init.Instance.ChangeControlledTroop(transform);
 
         /*
         _objectPooler = arrowSpawner.GetComponent<ObjectPooler>();
@@ -228,6 +230,11 @@ public class Troop : MonoBehaviour {
 
         targetedBy.Clear();
         if (Init.localPlayer.troops.Contains(gameObject)) Init.localPlayer.troops.Remove(gameObject);
+        if(Init.localPlayer.troops.Count > 0) Init.Instance.ChangeControlledTroop(Init.localPlayer.troops[0].transform);
+        else {
+            Init.Instance.ChangeControlledTroop(null);
+            
+        }
         yield return new WaitForSeconds(20.0f);
         Destroy(gameObject);
     }

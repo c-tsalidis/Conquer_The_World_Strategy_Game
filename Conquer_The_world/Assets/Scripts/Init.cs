@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cinemachine;
 using GameStrings;
 using TMPro;
 using UnityEngine;
@@ -42,6 +43,8 @@ public class Init : MonoBehaviour {
     private int frames = 0; // Frames drawn over the interval
     private float timeleft; // Left time for current interval
     [SerializeField] private TextMeshProUGUI fpsText;
+
+    [SerializeField] private CinemachineFreeLook cinemachineFreeLook;
 
 
     private void Awake() {
@@ -90,11 +93,13 @@ public class Init : MonoBehaviour {
 
     public void LoadBattle() {
         // load the city prefab
+        /*
         GameObject map = Instantiate(Resources.Load("Prefabs/Map")) as GameObject;
         if (map != null) {
             var t = map.transform.Find("Ground_Plane");
             if (t != null) t.tag = Tags.Ground;
         }
+        */
 
         // create the troops
         CreateTroops();
@@ -117,6 +122,8 @@ public class Init : MonoBehaviour {
                     t.tag = Tags.Troop;
                     t.PopulateInstance(p, 1);
                     p.troops.Add(troop);
+                    if (i == 0 && p.isLocalPlayer) t.isControlled = true;
+                    else t.isControlled = false;
                 }
                 else Debug.Log("Troop prefab is null");
             }
@@ -156,5 +163,10 @@ public class Init : MonoBehaviour {
             accum = 0.0F;
             frames = 0;
         }
+    }
+
+    public void ChangeControlledTroop(Transform troop) {
+        cinemachineFreeLook.Follow = troop;
+        cinemachineFreeLook.LookAt = troop;
     }
 }
