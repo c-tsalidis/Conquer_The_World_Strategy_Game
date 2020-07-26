@@ -6,13 +6,14 @@ using UnityEngine;
 // reference --> https://www.youtube.com/watch?v=4HpC--2iowE
 [RequireComponent(typeof(CharacterController))]
 public class ThirdPersonMovement : MonoBehaviour {
-    public Transform camera;
+    private Transform _camera;
     private CharacterController _characterController;
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
     private float _turnSmoothVelocity;
 
     private void Start() {
+        _camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
         _characterController = GetComponent<CharacterController>();
     }
 
@@ -21,7 +22,7 @@ public class ThirdPersonMovement : MonoBehaviour {
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
         if (direction.magnitude >= 0.1f) {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity,
                 turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);

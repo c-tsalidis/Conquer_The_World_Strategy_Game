@@ -86,7 +86,8 @@ public class Troop : MonoBehaviour {
                 Debug.LogError("Troop type archer is null");
             }
 
-            visuals = Instantiate(archerVisuals, visuals.transform.position + Vector3.down * 1.1f, visuals.transform.rotation);
+            visuals = Instantiate(archerVisuals, visuals.transform.position + Vector3.down * 1.1f,
+                visuals.transform.rotation);
         }
         else if (troopType == TroopType.Swordsman) {
             if (swordsmanVisuals == null) {
@@ -101,8 +102,8 @@ public class Troop : MonoBehaviour {
         Animator = visuals.GetComponent<Animator>();
 
         moveTo = transform;
-        
-        if(isControlled) Init.Instance.ChangeControlledTroop(transform, true);
+
+        if (isControlled) Init.Instance.ChangeControlledTroop(transform, true);
 
         /*
         _objectPooler = arrowSpawner.GetComponent<ObjectPooler>();
@@ -110,46 +111,57 @@ public class Troop : MonoBehaviour {
         _objectPooler.objectToPool = arrowPrefab;
         */
     }
-    
+
     private void Update() {
         if (_health <= 0) {
             StartCoroutine(Die());
             return;
         }
 
-        if (Time.time - previousTime > 0.05f) {
-            
-        }
+        CheckInput();
     }
 
     private void FixedUpdate() {
         if (_targetIsSet) {
-            if(!_isAttacking) transform.LookAt(target);
+            if (!_isAttacking) transform.LookAt(target);
             // check if the target is visible
             RaycastHit hit;
             // Does the ray intersect the troop layer
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity,
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit,
+                Mathf.Infinity,
                 LayerMask.GetMask(Init.Tags.Troop))) {
                 // the target is visible
                 targetIsVisible = true;
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance,
+                    Color.green);
             }
             else {
                 targetIsVisible = false;
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
             }
         }
-        if (moveTo != null) {
-            if (CalculateDistance(moveTo.position) >= minAttackRange && !_isAttacking) Run();
-            else if (!_isAttacking && targetIsVisible) Attack();
+
+        if (moveTo != null && !isControlled) {
+            if (CalculateDistance(moveTo.position) >= minAttackRange && !_isAttacking) _isRunning = true;
+            else if (!_isAttacking && targetIsVisible) _isAttacking = true;
+            else {
+                _isRunning = false;
+                _isAttacking = false;
+            }
             previousTime = Time.time;
+        }
+
+        if (_isRunning) Run();
+        else if (_isAttacking) Attack();
+        else {
+            Animator.SetBool("isAttacking", false);
+            Animator.SetBool("isRunning", false);
         }
     }
 
     public void PopulateInstance(Player player, int level) {
         // set the player of this troop
         troopPlayer = player;
-
         // set the gameobject's name to the troop type
         gameObject.name = troopType + " | " + gameObject.tag;
         // set the target tag
@@ -166,7 +178,7 @@ public class Troop : MonoBehaviour {
                 minAttackRange = 1.0f;
                 _minEnemyDistToNotice = 8.0f;
                 _speed = 2.0f;
-                _health = 10;
+                _health = 10 * level;
                 break;
             }
             case TroopType.Archer: {
@@ -174,7 +186,7 @@ public class Troop : MonoBehaviour {
                 minAttackRange = 8.0f;
                 _minEnemyDistToNotice = 16.0f;
                 _speed = 3.5f;
-                _health = 5;
+                _health = 5 * level;
                 break;
             }
         }
@@ -197,16 +209,21 @@ public class Troop : MonoBehaviour {
     public void Run() {
         Animator.SetBool("isRunning", true);
         // transform.LookAt(moveTo);
+        if (isControlled || moveTo == null) return;
         _pathFinder.SetDestination(moveTo.position);
         _pathFinder.speed = _speed;
-        _isRunning = true;
+        // _isRunning = true;
     }
 
     public void Attack() {
-        if (target == null || !_targetIsSet) return;
-        _isAttacking = true;
-        _pathFinder.speed = 0;
-        transform.LookAt(target);
+        if (!isControlled) {
+            if (target == null || !_targetIsSet) return;
+            _pathFinder.speed = 0;
+            transform.LookAt(target);
+        }
+
+        // _isAttacking = true;
+        // _isRunning = false;
         Animator.SetBool("isRunning", false);
         Animator.SetBool("isAttacking", true);
     }
@@ -230,10 +247,12 @@ public class Troop : MonoBehaviour {
 
         targetedBy.Clear();
         if (Init.localPlayer.troops.Contains(gameObject)) Init.localPlayer.troops.Remove(gameObject);
-        if(Init.localPlayer.troops.Count > 0) Init.Instance.ChangeControlledTroop(Init.localPlayer.troops[0].transform, true);
+        if (Init.localPlayer.troops.Count > 0)
+            Init.Instance.ChangeControlledTroop(Init.localPlayer.troops[0].transform, true);
         else {
             Init.Instance.ChangeControlledTroop(null, false);
         }
+
         yield return new WaitForSeconds(20.0f);
         Destroy(gameObject);
     }
@@ -259,17 +278,17 @@ public class Troop : MonoBehaviour {
         else return true;
     }
 
-    public void ShootArrow() {
-        // var arrow = _objectPooler.GetPooledObject();
-        if (_arrow != null && target != null) {
-            // _arrow.SetActive(true);
-            // Debug.Log("Shooting arrow");
-            var weapon = _arrow.GetComponent<Weapon>();
-            weapon.Troop = this;
-            var _rb = _arrow.GetComponent<Rigidbody>();
-            var thrust = 10.0f;
-            _arrow.transform.LookAt(target.transform);
-            _rb.AddForce(arrowSpawner.transform.forward * thrust);
+    private void CheckInput() {
+        if (!isControlled) return;
+
+        if (Input.GetKeyDown(KeyCode.Space) && IsAlive) {
+            _isAttacking = true;
         }
+        else _isAttacking = false;
+        
+        if (!_isAttacking && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)) {
+            _isRunning = true;
+        }
+        else _isRunning = false;
     }
 }

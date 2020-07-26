@@ -32,6 +32,7 @@ public class Weapon : MonoBehaviour {
     }
 
     private void Update() {
+        /*
         if(Troop == null) return;
         if (Troop.target != null && isShot) {
             var target = Troop.target;
@@ -47,20 +48,21 @@ public class Weapon : MonoBehaviour {
             }
         }
         else if(isShot) _rb.AddForce(transform.forward * 10.0f);
+        */
     }
 
 
     private void OnTriggerEnter(Collider other) {
-        /*
-        // Debug.Log(gameObject.name +  " collided with " + other.gameObject.name);
+        
         if (other.gameObject.CompareTag(Init.Tags.Troop)) {
             var troop = other.gameObject.GetComponent<Troop>();
             if (Troop.troopPlayer != troop.troopPlayer) {
-                // troop.TakeDamage(Troop._damage, troop);
+                troop.TakeDamage(Troop._damage, troop);
                 CollideArrow();
+                if(troop.isControlled) Debug.Log("DAMAGED");
             }
         }
-        */
+        
         if (other.gameObject.layer == LayerMask.NameToLayer(Init.Tags.Map)) {
             CollideArrow();
         }
@@ -76,7 +78,7 @@ public class Weapon : MonoBehaviour {
         var thrust = 10.0f;
         _rb.isKinematic = false;
         // transform.LookAt(Troop.target.transform);
-        // _rb.AddForce(transform.forward * thrust);
+        _rb.AddForce(transform.forward * thrust);
     }
 
     private void CollideArrow() {

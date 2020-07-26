@@ -175,7 +175,7 @@ MonoBehaviour:
   _speed: 2
   _minEnemyDistToNotice: 2
   isSelected: 0
-  isControlled: 1
+  isControlled: 0
   targetTag: 
   moveTo: {fileID: 0}
   _targetIsSet: 0
@@ -202,8 +202,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.42969972, y: 1.7824793, z: 0.5566312}
-  m_Center: {x: 0.000000029802322, y: -0.10876036, z: -0.034484208}
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &6348404166182392799
 NavMeshAgent:
   m_ObjectHideFlags: 0

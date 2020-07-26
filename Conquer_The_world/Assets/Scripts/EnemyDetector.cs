@@ -14,7 +14,7 @@ public class EnemyDetector : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         // if this troop is already targeting another enemy troop then return void
-        if (_troop.target != null || _troop._targetIsSet)
+        if (_troop.target != null || _troop._targetIsSet || _troop.isControlled)
             return;
         if (other.gameObject.CompareTag(Init.Tags.Troop)) {
             var t = other.gameObject.GetComponent<Troop>();

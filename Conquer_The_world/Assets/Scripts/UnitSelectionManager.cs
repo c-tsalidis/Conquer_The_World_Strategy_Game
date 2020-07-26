@@ -118,22 +118,15 @@ public class UnitSelectionManager : MonoBehaviour {
             Init.localPlayer.selectedTroops.Clear();
         }
 
+        /*
         // change from controlled troop to third person
         if (Input.GetKeyDown(KeyCode.Space)) {
-            // Init.Instance.cinemachineFreeLook.gameObject.SetActive(false);
-            // Init.Instance.cinemachineFreeLook.m_XAxis.m_InputAxisName = "Mouse X";
-            // Init.Instance.cinemachineFreeLook.m_YAxis.m_InputAxisName = "Mouse Y";
             Init.Instance.ChangeControlledTroop(null, false);
         }
         
         // change controlled troop
         if (Input.GetKeyDown(KeyCode.Tab)) {
-            /*
-            if(!Init.Instance.cinemachineFreeLook.gameObject.activeSelf) {
-                Init.Instance.cinemachineFreeLook.m_XAxis.m_InputAxisName = "Horizontal";
-                Init.Instance.cinemachineFreeLook.m_YAxis.m_InputAxisName = "Vertical";
-            }
-            */
+            
             if (Init.localPlayer.troops.Count > 0) {
                 if (Init.Instance.currentControlledTroop + 1 == Init.localPlayer.troops.Count) {
                     Init.Instance.currentControlledTroop = 0;
@@ -142,5 +135,6 @@ public class UnitSelectionManager : MonoBehaviour {
                 Init.Instance.ChangeControlledTroop(Init.localPlayer.troops[Init.Instance.currentControlledTroop].transform, true);
             }
         }
+        */
     }
 }

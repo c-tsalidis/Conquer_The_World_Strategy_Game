@@ -4,6 +4,7 @@ using Cinemachine;
 using GameStrings;
 using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -118,13 +119,20 @@ public class Init : MonoBehaviour {
                 troop.transform.SetParent(player.transform);
                 if (troop != null) {
                     Troop t = troop.GetComponent<Troop>();
-                    if (i % 2 == 0) t.troopType = Troop.TroopType.Swordsman;
+                    if (i % 2 == 0 && i != 0) t.troopType = Troop.TroopType.Swordsman;
                     else t.troopType = Troop.TroopType.Archer;
+                    if (i == 0 && p.isLocalPlayer) {
+                        string chosenCharacter = PlayerPrefs.GetString("chosenCharacter");
+                        if (chosenCharacter == "archer") t.troopType = Troop.TroopType.Archer;
+                        else t.troopType = Troop.TroopType.Swordsman;
+                        t.isControlled = true;
+                        troop.AddComponent<ThirdPersonMovement>();
+                        t.PopulateInstance(p, 50);
+                    }
+                    else t.PopulateInstance(p, 1);
                     t.tag = Tags.Troop;
-                    t.PopulateInstance(p, 1);
+                    
                     p.troops.Add(troop);
-                    if (i == 0 && p.isLocalPlayer) t.isControlled = true;
-                    else t.isControlled = false;
                 }
                 else Debug.Log("Troop prefab is null");
             }
@@ -148,7 +156,7 @@ public class Init : MonoBehaviour {
         // if (MainCamera != null) _cameraController.CheckInput();
         CalculateFPS();
     }
-
+    
     private void CalculateFPS() {
         timeleft -= Time.deltaTime;
         accum += Time.timeScale / Time.deltaTime;

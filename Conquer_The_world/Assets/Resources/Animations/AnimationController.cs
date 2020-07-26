@@ -20,7 +20,7 @@ public class AnimationController : MonoBehaviour {
         // Debug.Log("Animation finished ");
         _troop.Animator.SetBool("isAttacking", false);
         _troop._isAttacking = false;
-        if(_troop.target != null) _troop.target.gameObject.GetComponent<Troop>().TakeDamage(_troop._damage, _troop); // make damage to the target
+        if(_troop.target != null && _troop.troopType == Troop.TroopType.Swordsman) _troop.target.gameObject.GetComponent<Troop>().TakeDamage(_troop._damage, _troop); // make damage to the target
         // _troop.Attack();
         if (_troop.troopType == Troop.TroopType.Archer) {
             _weapon.isShot = false;

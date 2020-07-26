@@ -48,6 +48,7 @@
           <e p="Interfaces" t="Include">
             <e p="ITroop.cs" t="Include" />
           </e>
+          <e p="MainMenu.cs" t="Include" />
           <e p="ObjectPooler.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerData.cs" t="Include" />
