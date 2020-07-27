@@ -22,6 +22,7 @@ public class Init : MonoBehaviour {
     [SerializeField] private int numPlayers;
     [SerializeField] private GameObject playerPrefab;
     public static List<GameObject> Players = new List<GameObject>();
+    public static GameObject [] playersCharacters;
     public static Player localPlayer;
 
     // instance of the camera movement controller
@@ -44,6 +45,8 @@ public class Init : MonoBehaviour {
     private int frames = 0; // Frames drawn over the interval
     private float timeleft; // Left time for current interval
     [SerializeField] private TextMeshProUGUI fpsText;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI isAttackingText;
 
     public CinemachineFreeLook cinemachineFreeLook;
     [SerializeField] private GameObject thirdPersonGameObject;
@@ -88,27 +91,20 @@ public class Init : MonoBehaviour {
                 localPlayer = p;
             }
         }
+        playersCharacters = new GameObject[numPlayers];
 
         if (MainCamera == null) MainCamera = Camera.main;
         LoadBattle();
     }
 
     public void LoadBattle() {
-        // load the city prefab
-        /*
-        GameObject map = Instantiate(Resources.Load("Prefabs/Map")) as GameObject;
-        if (map != null) {
-            var t = map.transform.Find("Ground_Plane");
-            if (t != null) t.tag = Tags.Ground;
-        }
-        */
-
         // create the troops
         CreateTroops();
     }
 
     // TODO --> Move this method to the Troop class
     private void CreateTroops() {
+        int playerCounter = 0;
         // create the troops for each player
         foreach (var player in Players) {
             var p = player.GetComponent<Player>();
@@ -126,8 +122,9 @@ public class Init : MonoBehaviour {
                         if (chosenCharacter == "archer") t.troopType = Troop.TroopType.Archer;
                         else t.troopType = Troop.TroopType.Swordsman;
                         t.isControlled = true;
-                        troop.AddComponent<ThirdPersonMovement>();
-                        t.PopulateInstance(p, 50);
+                        // troop.AddComponent<ThirdPersonMovement>();
+                        t.PopulateInstance(p, 10);
+                        playersCharacters[playerCounter] = troop;
                     }
                     else t.PopulateInstance(p, 1);
                     t.tag = Tags.Troop;
@@ -136,6 +133,8 @@ public class Init : MonoBehaviour {
                 }
                 else Debug.Log("Troop prefab is null");
             }
+
+            playerCounter++;
         }
     }
 

@@ -49,6 +49,18 @@ public class UnitSelectionManager : MonoBehaviour {
                             var t = objectHit.GetComponent<Troop>();
                             t.isSelected = true;
                             if(!p.selectedTroops.Contains(t)) p.selectedTroops.Add(t);
+                            foreach (var character in Init.playersCharacters) {
+                                if (character != null) {
+                                    var troop = character.GetComponent<Troop>();
+                                    if (troop.IsEnemy(t)) {
+                                        Debug.Log("ENEMY");
+                                        troop._targetIsSet = true;
+                                        troop.target = t.transform;
+                                        troop.moveTo = t.transform;
+                                        t.GetComponent<Troop>().targetedBy.Add(troop);
+                                    }
+                                }
+                            }
                         }
                         else {
                             foreach (var selectedTroop in p.selectedTroops) {

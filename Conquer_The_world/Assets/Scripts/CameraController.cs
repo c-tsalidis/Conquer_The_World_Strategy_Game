@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour {
     }
 
     public void CheckInput() {
+        /*
         if (Input.anyKey) {
             float horizontal = Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime * speed;
             float vertical = Input.GetAxisRaw("Vertical") * Time.fixedDeltaTime * speed;
@@ -22,6 +23,7 @@ public class CameraController : MonoBehaviour {
         if (Math.Abs(Input.mouseScrollDelta.y) > 0) {
             _camera.transform.position += (Vector3.up * Input.mouseScrollDelta.y);
         }
+        */
         /*
          // to rotate the camera in the 2D x axis (3D y axis):
         float mouseInputXAxis = Input.GetAxis("Mouse X") * rotateSpeed * Time.fixedTime;

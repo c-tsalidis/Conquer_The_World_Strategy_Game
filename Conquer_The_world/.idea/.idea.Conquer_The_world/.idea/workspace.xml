@@ -20,22 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e702e6a9-20ad-4feb-af2a-02ae853c3b9d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Conquer_The_world/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/AnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/AnimationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animations/archer.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animations/archer.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Troop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Troop.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BattleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BattleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyDetector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Init.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Init.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThirdPersonMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThirdPersonMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Troop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Troop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +41,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Troop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/NavMeshComponents/Scripts/NavMeshSurface.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
@@ -62,6 +56,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/ITroop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.memoryprofiler@0.2.5-preview.1/Editor/MemoryProfilerWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/NavMeshComponents/Editor/NavMeshSurfaceEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemyDetector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
@@ -77,7 +72,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameStrings/SavedValues.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SavedValues/SavedValues.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameStrings/SceneNames.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPooler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameStrings/Tags.cs" />
@@ -86,10 +80,11 @@
         <option value="$PROJECT_DIR$/Assets/Resources/Animations/AnimationContoller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/ITroop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyDetector.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ThirdPersonMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyDetector.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Init.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UnitSelectionManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Troop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/Animations/AnimationController.cs" />
@@ -150,7 +145,7 @@
       <workItem from="1595526084608" duration="649000" />
       <workItem from="1595579523782" duration="1511000" />
       <workItem from="1595762426085" duration="9000" />
-      <workItem from="1595762443202" duration="13699000" />
+      <workItem from="1595762443202" duration="25898000" />
     </task>
     <servers />
   </component>
@@ -268,15 +263,15 @@
     </state>
     <state width="1638" height="390" key="GridCell.Tab.3.right/0.0.1680.1050@0.0.1680.1050" timestamp="1595326526075" />
     <state width="1638" height="390" key="GridCell.Tab.3.right/0.23.1680.954@0.23.1680.954" timestamp="1595066622795" />
-    <state x="100" y="84" width="1480" height="933" key="VCS.FileHistoryDialog" timestamp="1595024971987">
+    <state x="100" y="24" width="1480" height="1026" key="VCS.FileHistoryDialog" timestamp="1595828490470">
       <screen x="0" y="23" width="1680" height="955" />
     </state>
-    <state x="100" y="84" width="1480" height="933" key="VCS.FileHistoryDialog/0.23.1680.955@0.23.1680.955" timestamp="1595024971987" />
+    <state x="100" y="24" width="1480" height="1026" key="VCS.FileHistoryDialog/0.23.1680.955@0.23.1680.955" timestamp="1595828490470" />
     <state x="100" y="100" width="1480" height="850" key="VCS.FileHistoryDialog/0.23.1680.957@0.23.1680.957" timestamp="1595011926789" />
-    <state x="496" y="280" width="706" height="490" key="find.popup" timestamp="1595056066673">
+    <state x="496" y="280" width="751" height="490" key="find.popup" timestamp="1595839224962">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="496" y="280" width="706" height="490" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1595056066673" />
+    <state x="496" y="280" width="751" height="490" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1595839224962" />
     <state x="503" y="231" width="672" height="678" key="search.everywhere.popup" timestamp="1595796038756">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>

@@ -24,9 +24,7 @@ public class Weapon : MonoBehaviour {
 
     private Vector3 prevPosition;
     private Quaternion prevRotation;
-
-    public bool isShot = false;
-
+    
     private void Start() {
         _rb = GetComponent<Rigidbody>();
     }
@@ -59,7 +57,6 @@ public class Weapon : MonoBehaviour {
             if (Troop.troopPlayer != troop.troopPlayer) {
                 troop.TakeDamage(Troop._damage, troop);
                 CollideArrow();
-                if(troop.isControlled) Debug.Log("DAMAGED");
             }
         }
         
@@ -69,27 +66,22 @@ public class Weapon : MonoBehaviour {
     }
 
     public void ShootArrow() {
-        isShot = true;
-        Reset();
-        isShot = true;
+        gameObject.SetActive(false);
         prevPosition = Troop.arrowSpawner.transform.position;
         prevRotation = Troop.arrowSpawner.transform.rotation;
         var _rb = GetComponent<Rigidbody>();
         var thrust = 10.0f;
         _rb.isKinematic = false;
-        // transform.LookAt(Troop.target.transform);
         _rb.AddForce(transform.forward * thrust);
     }
 
     private void CollideArrow() {
         _rb.isKinematic = true;
+        Reset();
     }
 
     public void Reset() {
-        gameObject.SetActive(true);
-        _rb.velocity = Vector3.zero;
-        _rb.angularVelocity = Vector3.zero;
-        // _rb.isKinematic = false;
+        gameObject.SetActive(false);
         transform.position = prevPosition;
         transform.rotation = prevRotation;
     }

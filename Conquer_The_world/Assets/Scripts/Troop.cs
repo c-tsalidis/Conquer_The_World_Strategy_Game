@@ -8,7 +8,7 @@ using UnityEngine.Windows.Speech;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Troop : MonoBehaviour {
-    private NavMeshAgent _pathFinder;
+    public NavMeshAgent _pathFinder;
 
     public enum TroopType {
         Swordsman,
@@ -25,6 +25,7 @@ public class Troop : MonoBehaviour {
     public float _minEnemyDistToNotice;
     public bool isSelected;
     public bool isControlled;
+    private bool _controlledIsOnPursuitMode = true;
     public string targetTag;
 
     private GameObject _identifier;
@@ -103,59 +104,10 @@ public class Troop : MonoBehaviour {
 
         moveTo = transform;
 
-        if (isControlled) Init.Instance.ChangeControlledTroop(transform, true);
-
-        /*
-        _objectPooler = arrowSpawner.GetComponent<ObjectPooler>();
-        _objectPooler.amountToPool = 15;
-        _objectPooler.objectToPool = arrowPrefab;
-        */
-    }
-
-    private void Update() {
-        if (_health <= 0) {
-            StartCoroutine(Die());
-            return;
-        }
-
-        CheckInput();
-    }
-
-    private void FixedUpdate() {
-        if (_targetIsSet) {
-            if (!_isAttacking) transform.LookAt(target);
-            // check if the target is visible
-            RaycastHit hit;
-            // Does the ray intersect the troop layer
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit,
-                Mathf.Infinity,
-                LayerMask.GetMask(Init.Tags.Troop))) {
-                // the target is visible
-                targetIsVisible = true;
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance,
-                    Color.green);
-            }
-            else {
-                targetIsVisible = false;
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-            }
-        }
-
-        if (moveTo != null && !isControlled) {
-            if (CalculateDistance(moveTo.position) >= minAttackRange && !_isAttacking) _isRunning = true;
-            else if (!_isAttacking && targetIsVisible) _isAttacking = true;
-            else {
-                _isRunning = false;
-                _isAttacking = false;
-            }
-            previousTime = Time.time;
-        }
-
-        if (_isRunning) Run();
-        else if (_isAttacking) Attack();
-        else {
-            Animator.SetBool("isAttacking", false);
-            Animator.SetBool("isRunning", false);
+        if (isControlled) {
+            Init.Instance.ChangeControlledTroop(transform, true);
+            Init.Instance.healthText.text = "Health: " + _health;
+            isSelected = true;
         }
     }
 
@@ -179,14 +131,16 @@ public class Troop : MonoBehaviour {
                 _minEnemyDistToNotice = 8.0f;
                 _speed = 2.0f;
                 _health = 10 * level;
+                _damage *= level;
                 break;
             }
             case TroopType.Archer: {
                 InstantiateWeapon("Prefabs/ArcherWeapons");
                 minAttackRange = 8.0f;
-                _minEnemyDistToNotice = 16.0f;
+                _minEnemyDistToNotice = 16.0f + level;
                 _speed = 3.5f;
                 _health = 5 * level;
+                _damage *= level;
                 break;
             }
         }
@@ -203,27 +157,107 @@ public class Troop : MonoBehaviour {
         if (troopType == TroopType.Archer) {
             _arrow = Instantiate(arrowPrefab, arrowSpawner.transform) as GameObject;
             _arrow.GetComponent<Weapon>().Troop = this;
+            _arrow.SetActive(false);
         }
     }
 
+    private void Update() {
+        if (_health <= 0) {
+            StartCoroutine(Die());
+            return;
+        }
+
+        CheckInput();
+    }
+
+    private void CheckInput() {
+        if (!isControlled) return;
+
+        // make it so that if the user clicks on a target, attack him
+        // or (preferably), on space --> it'll attack automatically
+
+        if (Input.GetKeyDown(KeyCode.Space) && IsAlive) {
+            _controlledIsOnPursuitMode = !_controlledIsOnPursuitMode;
+            if(_controlledIsOnPursuitMode) Init.Instance.isAttackingText.text = "Attacking";
+            else Init.Instance.isAttackingText.text = "Free movement";
+        }
+
+        /*
+        if (!_isAttacking && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)) {
+            _isRunning = true;
+            _isAttacking = false;
+            target = null;
+            _targetIsSet = false;
+        }
+        else _isRunning = false;
+        */
+    }
+
+    private void FixedUpdate() {
+        if (_targetIsSet) {
+            if (!_isAttacking) {
+                if (isControlled) {
+                    if(_controlledIsOnPursuitMode) transform.LookAt(target);
+                }
+                else transform.LookAt(target);
+            }
+            // check if the target is visible
+            RaycastHit hit;
+            // Does the ray intersect the troop layer
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit,
+                Mathf.Infinity,
+                LayerMask.GetMask(Init.Tags.Troop))) {
+                // the target is visible
+                targetIsVisible = true;
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance,
+                    Color.green);
+            }
+            else {
+                targetIsVisible = false;
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+            }
+        }
+
+        if (moveTo != null) {
+            if (CalculateDistance(moveTo.position) >= minAttackRange && !_isAttacking) {
+                if (!isControlled) _isRunning = true;
+                _isRunning = true;
+            }
+            else if (!_isAttacking && targetIsVisible) {
+                if (isControlled) {
+                    if (_controlledIsOnPursuitMode) _isAttacking = true;
+                    else _isAttacking = false;
+                }
+                else _isAttacking = true;
+            }
+            else {
+                _isRunning = false;
+                _isAttacking = false;
+            }
+
+            previousTime = Time.time;
+        }
+
+        if (_isRunning) Run();
+        else if (_isAttacking) Attack();
+        else {
+            Animator.SetBool("isAttacking", false);
+            Animator.SetBool("isRunning", false);
+        }
+    }
+
+
     public void Run() {
+        if (moveTo == null) return;
         Animator.SetBool("isRunning", true);
-        // transform.LookAt(moveTo);
-        if (isControlled || moveTo == null) return;
         _pathFinder.SetDestination(moveTo.position);
         _pathFinder.speed = _speed;
-        // _isRunning = true;
     }
 
     public void Attack() {
-        if (!isControlled) {
-            if (target == null || !_targetIsSet) return;
-            _pathFinder.speed = 0;
-            transform.LookAt(target);
-        }
-
-        // _isAttacking = true;
-        // _isRunning = false;
+        if (target == null || !_targetIsSet) return;
+        _pathFinder.speed = 0;
+        transform.LookAt(target);
         Animator.SetBool("isRunning", false);
         Animator.SetBool("isAttacking", true);
     }
@@ -242,6 +276,9 @@ public class Troop : MonoBehaviour {
                 t.target = null;
                 t._targetIsSet = false;
                 t.moveTo = null;
+                // if (t.troopType == TroopType.Archer) t.arrowPrefab.GetComponent<Weapon>().Reset();
+                t._isRunning = false;
+                t._isAttacking = false;
             }
         }
 
@@ -260,6 +297,7 @@ public class Troop : MonoBehaviour {
     public void TakeDamage(int damage, Troop damager) {
         // Debug.Log(damager.transform.name + " injured " + transform.name + " by " + damage);
         _health -= damage;
+        if (isControlled) Init.Instance.healthText.text = "Health: " + _health;
     }
 
     /// <summary>
@@ -276,19 +314,5 @@ public class Troop : MonoBehaviour {
     public bool IsEnemy(Troop troop) {
         if (this.troopPlayer == troop.troopPlayer) return false;
         else return true;
-    }
-
-    private void CheckInput() {
-        if (!isControlled) return;
-
-        if (Input.GetKeyDown(KeyCode.Space) && IsAlive) {
-            _isAttacking = true;
-        }
-        else _isAttacking = false;
-        
-        if (!_isAttacking && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)) {
-            _isRunning = true;
-        }
-        else _isRunning = false;
     }
 }
