@@ -129,7 +129,7 @@ public class Troop : MonoBehaviour {
                 InstantiateWeapon("Prefabs/SwordsManWeapons");
                 minAttackRange = 1.0f;
                 _minEnemyDistToNotice = 8.0f;
-                _speed = 2.0f;
+                _speed = 5.0f;
                 _health = 10 * level;
                 _damage *= level;
                 break;
@@ -138,7 +138,7 @@ public class Troop : MonoBehaviour {
                 InstantiateWeapon("Prefabs/ArcherWeapons");
                 minAttackRange = 8.0f;
                 _minEnemyDistToNotice = 16.0f + level;
-                _speed = 3.5f;
+                _speed = 10f;
                 _health = 5 * level;
                 _damage *= level;
                 break;
@@ -220,22 +220,16 @@ public class Troop : MonoBehaviour {
 
         if (moveTo != null) {
             float distanceToTarget = CalculateDistance(moveTo.position);
-            if (!_isAttacking) {
-                if (distanceToTarget >= minAttackRange || target == null) {
-                    if (!isControlled) _isRunning = true;
-                    _isRunning = true;
+            if (distanceToTarget >= minAttackRange && !_isAttacking) {
+                if (!isControlled) _isRunning = true;
+                _isRunning = true;
+            }
+            else if (targetIsVisible && !_isAttacking) {
+                if (isControlled) {
+                    if (_controlledIsOnPursuitMode) _isAttacking = true;
+                    else _isAttacking = false;
                 }
-                else if (targetIsVisible) {
-                    if (isControlled) {
-                        if (_controlledIsOnPursuitMode) _isAttacking = true;
-                        else _isAttacking = false;
-                    }
-                    else _isAttacking = true;
-                }
-
-                if (distanceToTarget < minAttackRange && target == null) {
-                    _isRunning = true;
-                }
+                else _isAttacking = true;
             }
             else {
                 _isRunning = false;
