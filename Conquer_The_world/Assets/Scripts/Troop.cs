@@ -219,16 +219,23 @@ public class Troop : MonoBehaviour {
         }
 
         if (moveTo != null) {
-            if (CalculateDistance(moveTo.position) >= minAttackRange && !_isAttacking) {
-                if (!isControlled) _isRunning = true;
-                _isRunning = true;
-            }
-            else if (!_isAttacking && targetIsVisible) {
-                if (isControlled) {
-                    if (_controlledIsOnPursuitMode) _isAttacking = true;
-                    else _isAttacking = false;
+            float distanceToTarget = CalculateDistance(moveTo.position);
+            if (!_isAttacking) {
+                if (distanceToTarget >= minAttackRange || target == null) {
+                    if (!isControlled) _isRunning = true;
+                    _isRunning = true;
                 }
-                else _isAttacking = true;
+                else if (targetIsVisible) {
+                    if (isControlled) {
+                        if (_controlledIsOnPursuitMode) _isAttacking = true;
+                        else _isAttacking = false;
+                    }
+                    else _isAttacking = true;
+                }
+
+                if (distanceToTarget < minAttackRange && target == null) {
+                    _isRunning = true;
+                }
             }
             else {
                 _isRunning = false;

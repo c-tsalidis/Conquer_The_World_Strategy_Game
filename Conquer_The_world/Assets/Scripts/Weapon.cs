@@ -66,13 +66,13 @@ public class Weapon : MonoBehaviour {
     }
 
     public void ShootArrow() {
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
         prevPosition = Troop.arrowSpawner.transform.position;
         prevRotation = Troop.arrowSpawner.transform.rotation;
         var _rb = GetComponent<Rigidbody>();
         var thrust = 10.0f;
         _rb.isKinematic = false;
-        _rb.AddForce(transform.forward * thrust);
+        _rb.AddForce(Troop.transform.forward * thrust);
     }
 
     private void CollideArrow() {

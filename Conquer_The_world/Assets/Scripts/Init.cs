@@ -108,7 +108,7 @@ public class Init : MonoBehaviour {
         // create the troops for each player
         foreach (var player in Players) {
             var p = player.GetComponent<Player>();
-            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 10; i++) {
                 // var troop = Instantiate(Resources.Load("Prefabs/Troop"), transform.position + Vector3.right * (i + 1) + Vector3.up, Quaternion.identity) as GameObject;
                 var troop = Instantiate(Resources.Load("Prefabs/Troop"),
                     new Vector3(Random.Range(-40, 40), 0, Random.Range(-40, 40)), Quaternion.identity) as GameObject;
