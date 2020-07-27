@@ -100,7 +100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherWeapons
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 298423282224288303, guid: 19ec22dd1705b469882c22ccc424086a, type: 3}
+    - {fileID: 7204969526240354982, guid: 19ec22dd1705b469882c22ccc424086a, type: 3}
+    - {fileID: 3780384791688776712, guid: 19ec22dd1705b469882c22ccc424086a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19ec22dd1705b469882c22ccc424086a, type: 3}
 --- !u!1 &8681399887056610535 stripped
 GameObject:
